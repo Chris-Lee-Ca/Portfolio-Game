@@ -35,7 +35,8 @@ const Title = styled(Typography)({
     fontSize: '10px',
     backgroundColor: CustomStyle.colors.mainTransparent,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    zIndex: 50
 })
 
 

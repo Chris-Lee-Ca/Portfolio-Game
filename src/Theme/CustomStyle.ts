@@ -12,7 +12,11 @@ const CustomStyle =  {
         mainPaper: '#e4cc96',
         mainPaperSecondary: '#eee0c0',
         mainTransparent: 'rgb(255,255,255, 0.5)',
-        mainRoadBackground: '#aceeac',
+        mainRoadBackground: 'transparent',
+        mainMapBackground: 'rgb(88,180,252)',
+    },
+    border: {
+        mapBorder: `3px solid black`
     }
 }
 

@@ -23,13 +23,8 @@ const MapContainer = styled(Box)({
     overflow: 'hidden',
     // border: `2px solid ${CustomStyle.colors.mainBlack}`,
     borderRadius: '10px',
-    backgroundColor: CustomStyle.colors.mainRoadBackground,
-    boxShadow: CustomStyle.colors.mainShadow
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: 'orange'
+    backgroundColor: CustomStyle.colors.mainMapBackground,
+    boxShadow: CustomStyle.colors.mainShadow,
 
 })
 
