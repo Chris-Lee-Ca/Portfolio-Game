@@ -95,6 +95,9 @@ const DialogWindow = (props: DialogWindowPropsInterface) => {
                         right: 8,
                         top: 8,
                         color: CustomStyle.colors.mainBlack,
+                        backgroundColor: CustomStyle.colors.mainGreen,
+                        borderRadius: '100%',
+                        border: `3px solid ${CustomStyle.colors.mainBlack}`
                     }}
                     >
                     <CloseIcon />

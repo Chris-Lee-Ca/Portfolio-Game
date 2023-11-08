@@ -4,7 +4,8 @@ interface BioInterface{
 	description: string,
 	github: string,
 	resume: string,
-	linkedin: string
+	linkedin: string,
+	portfolio: string
 }
 
 interface SkillInterface{
@@ -71,6 +72,7 @@ export const Bio: BioInterface = {
     github: "https://github.com/bigbigphone2",
     resume: "https://drive.google.com/file/d/1WMuEvBOnKK89nAqQGVgnRn_6yYr5RNuO/view?usp=sharing",
     linkedin: "http://linkedin.com/in/yat-hei-lee",
+	portfolio: 'https://www.yatheilee.xyz/'
 };
   
 export const skills: SkillInterface[] = [
@@ -452,7 +454,6 @@ export const projects: ProjectsInterface[] = [
 			"MUI",
 			"Spring Boot",
 			"Redis",
-			"React Js",
 			"PostgreSQL",
 			"AWS",
 		],
@@ -555,7 +556,7 @@ export const projects: ProjectsInterface[] = [
 		title: "Training a robot to see and communicate",
 		nickname: "FinalYearProject",
 		description: [
-		'Explored possibilities and limitations of integrating object detection models into the renowned NAO robot by SoftBank.'
+			'Explored possibilities and limitations of integrating object detection models into the renowned NAO robot by SoftBank.'
 		],
 		image: require('../assets/game_images/projects/nao.png'),
 		tags: [
@@ -576,11 +577,11 @@ export const projects: ProjectsInterface[] = [
 		title: "Arduino automatic vehicle",
 		nickname: "ArduinoCar",
 		description: [
-		'Developed a vehicle capable of driving straight with low-quality motors.',
-		'Implemented precise distance measurement during travel.',
-		'Enabling automatic steering in response to specific color signals.',
-		'Created an auto-parking system for wireless charging stations.',
-		'Designed a disinfection function with an alcohol spraying mechanism.'
+			'Developed a vehicle capable of driving straight with low-quality motors.',
+			'Implemented precise distance measurement during travel.',
+			'Enabling automatic steering in response to specific color signals.',
+			'Created an auto-parking system for wireless charging stations.',
+			'Designed a disinfection function with an alcohol spraying mechanism.'
 		],
 		image: require('../assets/game_images/projects/arduino_car.jpeg'),
 		tags: [
@@ -600,13 +601,10 @@ export const projects: ProjectsInterface[] = [
 		title: "Portfolio Game",
 		nickname: "ThisGame",
 		description: [
-			'Developed a vehicle capable of driving straight with low-quality motors.',
-			'Implemented precise distance measurement during travel.',
-			'Enabling automatic steering in response to specific color signals.',
-			'Created an auto-parking system for wireless charging stations.',
-			'Designed a disinfection function with an alcohol spraying mechanism.'
+			'Crafted a 2D web game engine using TypeScript, React JS, Material UI',
+			'Offering an engaging journey to explore my personal experiences.'
 		],
-		image: require('../assets/game_images/projects/arduino_car.jpeg'),
+		image: require('../assets/game_images/projects/portfolioGame.png'),
 		tags: [
 			"TypeScript",
 			"React JS",
@@ -616,11 +614,11 @@ export const projects: ProjectsInterface[] = [
 		links: [
 			{
 				title: 'Source Code',
-				address: 'https://github.com/bigbigphone2/sudoku-solver'
+				address: 'https://github.com/bigbigphone2/Portfolio-Game'
 			},
 			{
 				title: 'Website',
-				address: 'https://sudoku-solver-eta-sage.vercel.app/'
+				address: 'https://portfolio-game-three.vercel.app'
 			}
 		]
 	},

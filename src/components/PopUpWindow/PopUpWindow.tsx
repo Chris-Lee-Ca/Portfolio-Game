@@ -43,7 +43,7 @@ const ImageContainer = styled(Grid)({
 const Img = styled('img')({
     // width: '100%',
     // height: '100%',
-    // maxWidth: '350px',
+    maxWidth: '90%',
     maxHeight: '250px',
     backgroundColor: CustomStyle.colors.mainWhite,
     border: `3px solid ${CustomStyle.colors.mainBlack}`,
@@ -96,6 +96,9 @@ const PopUpWindow = (props: PopUpWindowPropsInterface) => {
                     right: 8,
                     top: 8,
                     color: CustomStyle.colors.mainBlack,
+                    backgroundColor: CustomStyle.colors.mainGreen,
+                    borderRadius: '100%',
+                    border: `3px solid ${CustomStyle.colors.mainBlack}`
                 }}
                 >
                 <CloseIcon />

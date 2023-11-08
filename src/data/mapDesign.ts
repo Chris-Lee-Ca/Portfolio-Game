@@ -4,7 +4,7 @@ import { E_CornerBrickWall, N_CornerBrickWall, N_StraightBrickWall, W_CornerBric
 export type MapType = 'Road' | 'Wall' | 'Empty';
 export type OnTopItemType = 'Board' | 'Paper' | 'Skills' | 'School' | 'Company' 
 | 'GameHub' | 'BigTwo' | 'CharacterGPT' | 'Sudoku' | 'FinalYearProject' | 'ArduinoCar' | 'ThisGame'
-| 'Balloon' | 'FinishLine' | 'Interactable';
+| 'Balloon' | 'FinishLine' | 'Interactable' | 'Flower';
 
 export type Facing = 'N' | 'E' | 'S' | 'W';
 
@@ -36,6 +36,11 @@ export const companyBox: mapBoxDesignInterface = {
 export const balloonBox: mapBoxDesignInterface = {
     ...emptyBox,
     onTopItemType: 'Balloon'
+}
+
+export const flowerBox: mapBoxDesignInterface = {
+    ...emptyBox,
+    onTopItemType: 'Flower'
 }
 
 const mapDesign : mapBoxDesignInterface[][] = [
@@ -74,20 +79,20 @@ const mapDesign : mapBoxDesignInterface[][] = [
     [emptyBox, emptyBox, verticalRoute, emptyBox, emptyBox],
     // Skills
     [S_TurnRoute, S_TJunctionRoute, N_TJunctionRoute, S_TJunctionRoute, W_TurnRoute],
-    [verticalRoute, verticalRoute, emptyBox, verticalRoute, verticalRoute],
-    [SkillsLanguagesRoute, SkillsFrontedRoute, emptyBox, SkillsBackendRoute, SkillsOthersRoute],
-    [verticalRoute, verticalRoute, emptyBox, verticalRoute, verticalRoute],
+    [verticalRoute, verticalRoute, flowerBox, verticalRoute, verticalRoute],
+    [SkillsLanguagesRoute, SkillsFrontedRoute, flowerBox, SkillsBackendRoute, SkillsOthersRoute],
+    [verticalRoute, verticalRoute, flowerBox, verticalRoute, verticalRoute],
     [E_TurnRoute, N_TJunctionRoute, S_TJunctionRoute, N_TJunctionRoute, N_TurnRoute],
     [emptyBox, emptyBox, skillsRoute, emptyBox, emptyBox],
     // 
     [emptyBox, emptyBox, verticalRoute, emptyBox, emptyBox],
     [emptyBox, emptyBox, verticalRoute, emptyBox, emptyBox],
     // Resume
-    [emptyBox, resumeRoute, W_TJunctionRoute, emptyBox, emptyBox],
+    [resumeRoute, horizontalRoute, W_TJunctionRoute, emptyBox, emptyBox],
     [emptyBox, emptyBox, verticalRoute, emptyBox,emptyBox],
     // circle
     [emptyBox, S_TurnRoute, N_TJunctionRoute, W_TurnRoute, emptyBox],
-    [emptyBox, verticalRoute, emptyBox, verticalRoute, emptyBox],
+    [emptyBox, verticalRoute, flowerBox, verticalRoute, emptyBox],
     [emptyBox, E_TurnRoute, S_TJunctionRoute, N_TurnRoute, emptyBox],
     // Intro
     [emptyBox, emptyBox, introRoute, emptyBox, emptyBox],

@@ -5,6 +5,11 @@ import Typewriter from 'typewriter-effect';
 import HomePageImage from '../../../assets/web_images/homepage.png'
 import { Link } from "react-router-dom";
 
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import WebIcon from '@mui/icons-material/Web';
+
+
 const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.primary,
     height: '100vh',
@@ -12,6 +17,23 @@ const Container = styled(Box)({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+})
+
+const AppBar = styled(Box)({
+    position: 'absolute',
+    top: 5,
+    width: '100%',
+    maxWidth: '1000px',
+    display: 'flex',
+    justifyContent: 'flex-end',
+})
+
+const LinkIcon = styled('a')({
+    padding: '20px 20px',
+    cursor: 'pointer',
+    '&:hover': {
+        color: CustomStyle.colors.mainGrey,
+    },
 })
 
 const InnerContainer = styled(Grid)({
@@ -82,6 +104,11 @@ const Img = styled('img')({
 const Home = () => {
     return (
         <Container>
+            <AppBar>
+                <LinkIcon href={Bio.portfolio} target="display"><WebIcon/></LinkIcon>
+                <LinkIcon href={Bio.linkedin} target="display"><LinkedInIcon/></LinkIcon>
+                <LinkIcon href={Bio.github} target="display"><GitHubIcon/></LinkIcon>
+            </AppBar>
             <InnerContainer container>
                 <LeftContainer item xs={12} sm={6}>
                     <Title>{Bio.name}</Title>

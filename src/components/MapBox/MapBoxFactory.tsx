@@ -13,6 +13,7 @@ import CompanyBox from "./OnTopItem/CompanyBox/CompanyBox";
 import PaintingBox from "./OnTopItem/PaintingBox/PaintingBox";
 import BalloonBox from "./OnTopItem/BalloonBox/BalloonBox";
 import FinishLineBox from "./OnTopItem/FinishLineBox/FinishLineBox";
+import FlowerBox from "./OnTopItem/FlowerBox/FlowerBox";
 
 interface MapBoxFactoryProps{
     location: [number, number],
@@ -75,6 +76,10 @@ const onTopItemFactory = (props: MapBoxFactoryProps)=> {
     }else if (onTopItemType === 'Interactable'){
         return (
             <InteractableBox location={location} facing={facing}/>
+        )
+    }else if (onTopItemType === 'Flower'){
+        return (
+            <FlowerBox location={location} facing={facing}/>
         )
     }
 }
