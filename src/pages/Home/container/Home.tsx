@@ -68,7 +68,7 @@ const Title = styled(Typography)({
     lineHeight: '68px'
 })
 
-const TextLoop = styled(Typography)({
+const TextLoop = styled(Box)({
     fontSize: '22px',
     fontWeight: 600,
     display: 'flex',
