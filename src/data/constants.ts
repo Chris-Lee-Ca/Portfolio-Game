@@ -520,7 +520,7 @@ export const projects: ProjectsInterface[] = [
 		},
 		{
 			title: 'Website',
-			address: 'https://character-9qzxvm3ip-bigbigphone2s-projects.vercel.app/'
+			address: 'https://character-gpt-mu.vercel.app'
 		}
 		]
 	},
