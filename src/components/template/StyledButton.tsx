@@ -60,7 +60,7 @@ interface styledButtonProps {
 interface controlButtonProps {
     children: any;
     onClick?: () => void;
-    correspondingKey: string,
+    correspondingKeys: string[],
     type: "direction" | "interaction"
     style?: CSSProperties
 }
@@ -74,12 +74,12 @@ const StyledButton = ({children, onClick, type, form }: styledButtonProps) => {
 }
 
 //The color of this button will change when corresponding key is clicked.
-const ControlButton = ({children, onClick, correspondingKey, type, style}: controlButtonProps) => {
+const ControlButton = ({children, onClick, correspondingKeys, type, style}: controlButtonProps) => {
 
     const [isChangeColor, setIsChangeColor] = useState<boolean>(false);
 
     const keyBoardListener = (e: any) => {
-        if (e.key != correspondingKey)
+        if (!correspondingKeys.includes(e.key))
             return;
         setIsChangeColor(true);
         setTimeout(()=> setIsChangeColor(false), 200);

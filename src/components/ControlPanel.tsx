@@ -63,6 +63,12 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
     const {dialogState, setDialogState} = useDialogState();
     const {isOpenDialogWindow} = dialogState;
 
+    const handleCloseWindow = () => {
+        if (isOpenPopUpWindow)
+            setGameInfoState({...gameInfoState, isOpenPopUpWindow: false});
+        if (isOpenDialogWindow)
+            setDialogState({...dialogState, isOpenDialogWindow: false});
+    }
     const keyBoardListener = useCallback((e: any) => {
         const htmlMovingType = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
         const htmlInteractType = ['a', 'A'];
@@ -70,7 +76,7 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
         if (! (htmlCommandType.includes(e.key)))
             return;
         if (isOpenPopUpWindow || isOpenDialogWindow)
-            return;
+            return handleCloseWindow();
         if (htmlMovingType.includes(e.key))
             handleAllowedMovingDirestion(playerState, setPlayerState, allowedMovingDirestion, e.key);
         if (htmlInteractType.includes(e.key))
@@ -99,24 +105,24 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
             <InenerContainer container>
                 <DirectionKeyContainer item xs={6}>
                     <Box>
-                        <ControlButton style={{marginBottom: '0px'}} type="direction" correspondingKey="ArrowUp" onClick={()=>handleOnClickArrowButton('ArrowUp')}>
+                        <ControlButton style={{marginBottom: '0px'}} type="direction" correspondingKeys={["ArrowUp"]} onClick={()=>handleOnClickArrowButton('ArrowUp')}>
                             <ArrowDropUpIcon/>
                         </ControlButton>
                     </Box>
                     <Box display={'flex'}>
-                        <ControlButton type="direction" correspondingKey="ArrowLeft" onClick={()=>handleOnClickArrowButton('ArrowLeft')}>
+                        <ControlButton type="direction" correspondingKeys={["ArrowLeft"]} onClick={()=>handleOnClickArrowButton('ArrowLeft')}>
                             <ArrowLeftIcon/>
                         </ControlButton>
-                        <ControlButton type="direction" correspondingKey="ArrowDown" onClick={()=>handleOnClickArrowButton('ArrowDown')}>
+                        <ControlButton type="direction" correspondingKeys={["ArrowDown"]} onClick={()=>handleOnClickArrowButton('ArrowDown')}>
                             <ArrowDropDownIcon/>
                         </ControlButton>
-                        <ControlButton type="direction" correspondingKey="ArrowRight" onClick={()=>handleOnClickArrowButton('ArrowRight')}>
+                        <ControlButton type="direction" correspondingKeys={["ArrowRight"]} onClick={()=>handleOnClickArrowButton('ArrowRight')}>
                             <ArrowRightIcon/>
                         </ControlButton>
                     </Box>
                 </DirectionKeyContainer>
                 <ActionKeyContainer item xs={6}>
-                    <ControlButton type="interaction" correspondingKey="a" onClick={()=>handleInteractionButton()}>
+                    <ControlButton type="interaction" correspondingKeys={["a" , "A"]} onClick={()=>handleInteractionButton()}>
                         A
                     </ControlButton>
                 </ActionKeyContainer>
