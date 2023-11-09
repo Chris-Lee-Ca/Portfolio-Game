@@ -54,6 +54,9 @@ interface ControlPanelPropsInterface{
     // setPlayerPosition: Dispatch<SetStateAction<[number, number]>>
 }
 
+const htmlMovingType = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+const htmlInteractType = ['a', 'A'];
+
 const ControlPanel = (props: ControlPanelPropsInterface) => {
 
     const {playerState, setPlayerState} = usePlayerState();
@@ -63,20 +66,20 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
     const {dialogState, setDialogState} = useDialogState();
     const {isOpenDialogWindow} = dialogState;
 
-    const handleCloseWindow = () => {
+    const handleCloseWindow = (key: string) => {
+        if (! (htmlInteractType.includes(key)))
+            return;
         if (isOpenPopUpWindow)
             setGameInfoState({...gameInfoState, isOpenPopUpWindow: false});
         if (isOpenDialogWindow)
             setDialogState({...dialogState, isOpenDialogWindow: false});
     }
     const keyBoardListener = useCallback((e: any) => {
-        const htmlMovingType = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-        const htmlInteractType = ['a', 'A'];
         const htmlCommandType = [...htmlMovingType, ...htmlInteractType];
         if (! (htmlCommandType.includes(e.key)))
             return;
         if (isOpenPopUpWindow || isOpenDialogWindow)
-            return handleCloseWindow();
+            return handleCloseWindow(e.key);
         if (htmlMovingType.includes(e.key))
             handleAllowedMovingDirestion(playerState, setPlayerState, allowedMovingDirestion, e.key);
         if (htmlInteractType.includes(e.key))
