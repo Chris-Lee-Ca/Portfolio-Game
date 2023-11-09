@@ -8,11 +8,13 @@ import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import { Dispatch, SetStateAction, useCallback, useEffect } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
 import mapDesign from "../data/mapDesign";
 import { usePlayerState } from "../Context/PlayerContext";
 import { useGameInfoState } from "../Context/GameInfoContext";
 import { handleAllowedMovingDirestion, handleOnClickArrowButton, htmlCommandType, triggerForceTriggerEvent, triggerInteractionEvent } from "../utils/playerControl";
+import { useDialogState } from "../Context/DialogContext";
+import { ControlButton } from "./template/StyledButton";
 
 const Container = styled(Box)({
     position: 'absolute',
@@ -40,46 +42,11 @@ const DirectionKeyContainer = styled(Grid)({
     alignItems: 'center',
 })
 
-
-const KeyBoardButton = styled(Button)({
-    maxWidth: '30px',
-    maxHeight: '30px', 
-    minWidth: '30px', 
-    minHeight: '30px',
-    border: `3px solid ${CustomStyle.colors.mainBlack}`,
-    boxShadow: CustomStyle.colors.balckShoadow,
-    margin: '2px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: CustomStyle.colors.primary,
-    '&:hover': {
-        backgroundColor: CustomStyle.colors.primary,
-    },
-    
-})
-
 const ActionKeyContainer = styled(Grid)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-})
-
-const ActionButton = styled(Button)({
-    maxWidth: '40px',
-    maxHeight: '40px', 
-    minWidth: '40px', 
-    minHeight: '40px',
-    borderRadius: '100%',
-    border: `3px solid ${CustomStyle.colors.mainBlack}`,
-    boxShadow: CustomStyle.colors.balckShoadow,
-    backgroundColor: CustomStyle.colors.mainGreen,
-    '&:hover': {
-        backgroundColor: CustomStyle.colors.mainGreen,
-    },
-    fontWeight: 'bolder'
 })
 
 interface ControlPanelPropsInterface{
@@ -89,25 +56,26 @@ interface ControlPanelPropsInterface{
 
 const ControlPanel = (props: ControlPanelPropsInterface) => {
 
-    const playerState = usePlayerState().playerState;
+    const {playerState, setPlayerState} = usePlayerState();
     const {playerPosition} = playerState;
-    const setPlayerState = usePlayerState().setPlayerState;
-    const {allowedMovingDirestion} = useGameInfoState().gameInfoState;
-    const gameInfoState = useGameInfoState().gameInfoState;
-    const setGameInfoState = useGameInfoState().setGameInfoState;
+    const {gameInfoState, setGameInfoState} = useGameInfoState();
+    const {allowedMovingDirestion, isOpenPopUpWindow} = gameInfoState;
+    const {dialogState, setDialogState} = useDialogState();
+    const {isOpenDialogWindow} = dialogState;
 
     const keyBoardListener = useCallback((e: any) => {
         const htmlMovingType = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
         const htmlInteractType = ['a', 'A'];
         const htmlCommandType = [...htmlMovingType, ...htmlInteractType];
-
         if (! (htmlCommandType.includes(e.key)))
+            return;
+        if (isOpenPopUpWindow || isOpenDialogWindow)
             return;
         if (htmlMovingType.includes(e.key))
             handleAllowedMovingDirestion(playerState, setPlayerState, allowedMovingDirestion, e.key);
         if (htmlInteractType.includes(e.key))
-            handleInteractionButton()
-    },[playerState, allowedMovingDirestion]);
+            handleInteractionButton();
+    },[allowedMovingDirestion, isOpenPopUpWindow, isOpenDialogWindow]);
 
     const handleOnClickArrowButton = (htmlCommand: htmlCommandType) => {
         handleAllowedMovingDirestion(playerState, setPlayerState, allowedMovingDirestion, htmlCommand);
@@ -131,16 +99,26 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
             <InenerContainer container>
                 <DirectionKeyContainer item xs={6}>
                     <Box>
-                        <KeyBoardButton sx={{marginBottom: '0px'}} onClick={()=>handleOnClickArrowButton('ArrowUp')}><ArrowDropUpIcon/></KeyBoardButton>
+                        <ControlButton style={{marginBottom: '0px'}} type="direction" correspondingKey="ArrowUp" onClick={()=>handleOnClickArrowButton('ArrowUp')}>
+                            <ArrowDropUpIcon/>
+                        </ControlButton>
                     </Box>
                     <Box display={'flex'}>
-                        <KeyBoardButton onClick={()=>handleOnClickArrowButton('ArrowLeft')}><ArrowLeftIcon/></KeyBoardButton>
-                        <KeyBoardButton onClick={()=>handleOnClickArrowButton('ArrowDown')}><ArrowDropDownIcon/></KeyBoardButton>
-                        <KeyBoardButton onClick={()=>handleOnClickArrowButton('ArrowRight')}><ArrowRightIcon/></KeyBoardButton>
+                        <ControlButton type="direction" correspondingKey="ArrowLeft" onClick={()=>handleOnClickArrowButton('ArrowLeft')}>
+                            <ArrowLeftIcon/>
+                        </ControlButton>
+                        <ControlButton type="direction" correspondingKey="ArrowDown" onClick={()=>handleOnClickArrowButton('ArrowDown')}>
+                            <ArrowDropDownIcon/>
+                        </ControlButton>
+                        <ControlButton type="direction" correspondingKey="ArrowRight" onClick={()=>handleOnClickArrowButton('ArrowRight')}>
+                            <ArrowRightIcon/>
+                        </ControlButton>
                     </Box>
                 </DirectionKeyContainer>
                 <ActionKeyContainer item xs={6}>
-                    <ActionButton onClick={()=>handleInteractionButton()}>A</ActionButton>
+                    <ControlButton type="interaction" correspondingKey="a" onClick={()=>handleInteractionButton()}>
+                        A
+                    </ControlButton>
                 </ActionKeyContainer>
             </InenerContainer>
         </Container>

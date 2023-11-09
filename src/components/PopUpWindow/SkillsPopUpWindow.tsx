@@ -60,7 +60,7 @@ const SkillsPopUpWindow = (props: SkillsPopUpWindowPropsInterface) => {
             <Title>{field}</Title>
             <SkillSetContainer>
                 {skill?.skills.map((skill, idnex) => 
-                    <SkillSet>
+                    <SkillSet key={idnex}>
                         <Img src={skill.image}/>
                         <SkillName>{skill.name}</SkillName>
                     </SkillSet>
