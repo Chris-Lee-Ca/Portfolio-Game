@@ -1,4 +1,4 @@
 export default {
-    mapBoxWidth: 80,
-    mapBoxHeight: 80
+    mapBoxWidth: 70,
+    mapBoxHeight: 70
 }

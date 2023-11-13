@@ -17,6 +17,7 @@ const Container = styled(Box)({
 })
 
 const ImageWrapper = styled(Box)({
+    position: 'absolute',
     border: `4px solid ${CustomStyle.colors.mainBlack}`,
     backgroundColor: CustomStyle.colors.mainWhite,
     boxShadow: CustomStyle.colors.balckShoadow,
@@ -32,10 +33,12 @@ const Img = styled('img')({
 })
 
 const Title = styled(Typography)({
+    position: 'absolute',
     fontSize: '10px',
     backgroundColor: CustomStyle.colors.mainTransparent,
     fontWeight: 'bold',
     textAlign: 'center',
+    top: `${StyleConfig.mapBoxHeight + 5}px`,
     zIndex: 50
 })
 

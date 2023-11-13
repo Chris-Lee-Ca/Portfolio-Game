@@ -6,12 +6,12 @@ import mapDesign, { Facing } from "../../../data/mapDesign";
 import { usePlayerState } from "../../../Context/PlayerContext";
 import { arrayEquals, getTransformDegreee } from "../../../utils/general";
 import { useGameInfoState } from "../../../Context/GameInfoContext";
-import { triggerForceTriggerEvent } from "../../../utils/playerControl";
+import StyleConfig from "../../../Theme/StyleConfig";
 
 const Container = styled(Box)({
     position: 'absolute',
-    height: '100%',
-    width: '100%'
+    width: `${StyleConfig.mapBoxWidth}px`,
+    height: `${StyleConfig.mapBoxHeight}px`,
 })
 
 const RowContainer = styled(Box)({

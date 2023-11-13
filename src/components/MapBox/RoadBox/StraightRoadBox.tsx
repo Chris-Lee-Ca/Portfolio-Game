@@ -6,11 +6,12 @@ import { Facing } from "../../../data/mapDesign";
 import { usePlayerState } from "../../../Context/PlayerContext";
 import { arrayEquals, getTransformDegreee } from "../../../utils/general";
 import { useGameInfoState } from "../../../Context/GameInfoContext";
+import StyleConfig from "../../../Theme/StyleConfig";
 
 const Container = styled(Box)({
     position: 'absolute',
-    height: '100%',
-    width: '100%'
+    width: `${StyleConfig.mapBoxWidth}px`,
+    height: `${StyleConfig.mapBoxHeight}px`,
 })
 
 const RowContainer = styled(Box)({
@@ -22,13 +23,16 @@ const RowContainer = styled(Box)({
 
 const Road = styled(Box)({
     backgroundColor: CustomStyle.colors.mainRoad,
-    width: '33.3%',
-    height: '100%'
+    width: 'calc(100%/3)',
+    height: '100%',
+    borderLeft: CustomStyle.border.mapBorder,
+    borderRight: CustomStyle.border.mapBorder,
+    boxSizing: 'border-box'
 })
 
 const Barrier = styled(Box)({
     backgroundColor: CustomStyle.colors.mainRoadBackground,
-    width: '33.3%',
+    width: 'calc(100%/3)',
     height: '100%'
 })
 

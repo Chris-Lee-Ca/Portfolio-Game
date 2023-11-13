@@ -6,29 +6,31 @@ import { Facing } from "../../../data/mapDesign";
 import { usePlayerState } from "../../../Context/PlayerContext";
 import { arrayEquals, getTransformDegreee } from "../../../utils/general";
 import { useGameInfoState } from "../../../Context/GameInfoContext";
+import StyleConfig from "../../../Theme/StyleConfig";
 
-const Container = styled(Box)({
+const Container = styled('div')({
     position: 'absolute',
-    height: '100%',
-    width: '100%'
+    width: `${StyleConfig.mapBoxWidth}px`,
+    height: `${StyleConfig.mapBoxHeight}px`,
 })
 
 const RowContainer = styled(Box)({
     display: 'flex',
-    height: '33.3%',
+    height: 'calc(100%/3)',
     width: '100%'
 })
 
 
 const Road = styled(Box)({
     backgroundColor: CustomStyle.colors.mainRoad,
-    width: '100%',
-    height: '100%'
+    width: 'calc(100%/3)',
+    height: '100%',
+    boxSizing: 'border-box'
 })
 
 const Barrier = styled(Box)({
     backgroundColor: CustomStyle.colors.mainRoadBackground,
-    width: '100%',
+    width: 'calc(100%/3)',
     height: '100%'
 })
 
@@ -61,21 +63,21 @@ const TjunctionRoadBox = (props: TjunctionRoadBoxPropsInterface) => {
     }, [playerPosition]);
 
     return (
-        <>
-            <Container sx={{transform : getTransformDegreee(facing)}}>
+            <Container style={{transform : getTransformDegreee(facing)}}>
                 <RowContainer >
                     <Barrier/>
-                    <Road/>
+                    <Road sx={{borderLeft: CustomStyle.border.mapBorder, borderRight: CustomStyle.border.mapBorder}}/>
                     <Barrier/>
                 </RowContainer>
                 <RowContainer >
-                    <Road/>
+                    <Road sx={{border: CustomStyle.border.mapBorder, borderLeft: '0px', borderRight: '0px',}}/>
+                    <Road sx={{borderBottom: CustomStyle.border.mapBorder}}/>
+                    <Road sx={{border: CustomStyle.border.mapBorder, borderLeft: '0px', borderRight: '0px'}}/>
                 </RowContainer>
                 <RowContainer>
                     <Barrier/>
                 </RowContainer>
             </Container>
-        </>
 
     )
 }

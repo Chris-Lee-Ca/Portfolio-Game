@@ -14,6 +14,9 @@ import PaintingBox from "./OnTopItem/PaintingBox/PaintingBox";
 import BalloonBox from "./OnTopItem/BalloonBox/BalloonBox";
 import FinishLineBox from "./OnTopItem/FinishLineBox/FinishLineBox";
 import FlowerBox from "./OnTopItem/FlowerBox/FlowerBox";
+import FlowerSeaBox from "./OnTopItem/FlowerSeaBox/FlowerSeaBox";
+import TreeBox from "./OnTopItem/TreeBox/TreeBox";
+import GlassBox from "./OnTopItem/GlassBox/GlassBox";
 
 interface MapBoxFactoryProps{
     location: [number, number],
@@ -80,6 +83,18 @@ const onTopItemFactory = (props: MapBoxFactoryProps)=> {
     }else if (onTopItemType === 'Flower'){
         return (
             <FlowerBox location={location} facing={facing}/>
+        )
+    }else if (onTopItemType === 'FlowerSea'){
+        return (
+            <FlowerSeaBox location={location} facing={facing}/>
+        )
+    }else if (onTopItemType === 'Tree'){
+        return (
+            <TreeBox location={location} facing={facing}/>
+        )
+    }else if (onTopItemType === 'Glass'){
+        return (
+            <GlassBox location={location} facing={facing}/>
         )
     }
 }

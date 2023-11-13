@@ -8,32 +8,36 @@ const Container = styled(Box)({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    // backgroundColor: 'red',
+    // overflow: 'visible',
     height: '100%',
-    width: '100%',
+    width: '100%'
 })
 
 const Img = styled('img')({
     objectFit: 'cover',
-    width: `${StyleConfig.mapBoxWidth * 1.5}px`,
+    width: `${StyleConfig.mapBoxWidth / 1.5}px`,
     // height: `${StyleConfig.mapBoxHeight * 2}px`,
     position: 'absolute',
+    bottom: 0, /* Adjust as needed */
+    // left: 0, 
     margin: 'auto'
 })
 
 
-interface SchoolBoxPropsInterface{
+interface TreeBoxPropsInterface{
     location: [number, number],
     facing: Facing,
 }
 
-const SchoolBox = (props: SchoolBoxPropsInterface) => {
+const TreeBox = (props: TreeBoxPropsInterface) => {
 
     const {facing} = props;
     return (
         <>
             <Container>
                 <Img 
-                    src={require('../../../../assets/game_images/school.png')}
+                    src={require('../../../../assets/game_images/tree.png')}
                 />
             </Container>
         </>
@@ -41,4 +45,4 @@ const SchoolBox = (props: SchoolBoxPropsInterface) => {
     )
 }
 
-export default SchoolBox;
+export default TreeBox;

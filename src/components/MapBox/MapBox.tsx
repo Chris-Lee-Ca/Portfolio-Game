@@ -16,7 +16,6 @@ const Container = styled(Box)({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    // border: `1px solid ${CustomStyle.colors.mainBlack}`
 })
 
 const Image = styled(`img`)({
