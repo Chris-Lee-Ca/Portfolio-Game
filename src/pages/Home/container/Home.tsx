@@ -4,6 +4,7 @@ import { Bio } from "../../../data/constants";
 import Typewriter from 'typewriter-effect';
 import HomePageImage from '../../../assets/web_images/homepage.png'
 import { Link } from "react-router-dom";
+import "animate.css";
 
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -115,7 +116,9 @@ const Home = () => {
                     <TextLoop>
                         I am a <Span><Typewriter options={{strings: Bio.roles, autoStart: true, loop: true}}></Typewriter></Span>
                     </TextLoop>
-                    <StartButton variant="contained"><StyledLink to="/game">Start</StyledLink></StartButton>
+                    <Box className="animate__animated animate__infinite animate__slower animate__heartBeat">
+                        <StartButton variant="contained"><StyledLink to="/game">Start</StyledLink></StartButton>
+                    </Box>
                 </LeftContainer>
                 <RightContainer item xs={12} sm={6}>
                     <Img src={HomePageImage} alt="hero-image" />
