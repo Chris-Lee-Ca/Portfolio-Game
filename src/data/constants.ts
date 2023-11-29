@@ -58,7 +58,7 @@ export interface ProjectsInterface{
 
 export const Bio: BioInterface = {
     name: [
-      "Yat Hei Lee"
+      "Chris Lee"
     ],
     roles: [
       "Full Stack Developer",
