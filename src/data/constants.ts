@@ -72,7 +72,7 @@ export const Bio: BioInterface = {
     github: "https://github.com/bigbigphone2",
     resume: "https://drive.google.com/file/d/1WMuEvBOnKK89nAqQGVgnRn_6yYr5RNuO/view?usp=sharing",
     linkedin: "http://linkedin.com/in/yat-hei-lee",
-	portfolio: 'https://www.yatheilee.xyz/'
+	  portfolio: 'https://www.yatheilee.xyz/'
 };
   
 export const skills: SkillInterface[] = [
@@ -118,16 +118,6 @@ export const skills: SkillInterface[] = [
         image:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
       },
-      {
-        name: "XML",
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBMw6_RdwKQ9bDFfnKDX1iwMl4bVJEvd9PP53XuIw&s",
-      },
-      {
-        name: "C++",
-        image:
-          "https://skillicons.dev/icons?i=cpp",
-      },
     ],
   },
   {
@@ -152,11 +142,6 @@ export const skills: SkillInterface[] = [
         name: "Material UI",
         image:
           "data:image/png;base64,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",
-      },
-      {
-        name: "React Native",
-        image:
-          require("../assets/game_images/skills/react-icon.png"),
       },
       {
         name: "jQuery",
@@ -334,12 +319,12 @@ export const experiences: ExperienceInterface[] = [
       "K8s",
     ],
     achievements: [
-      "Redesign the company's market data database structure, increase the storage capacity by 20 times, and increase the data retrieval speed by 10 times.",
-      'Developed a generic report generation module, reducing manual custom reporting by 30%.',
-      'Enhanced a React JS, Node Js, Python & Java based Internal Market Watch web application by incorporating Excel-like features, enabling traders to manipulate and analyze data more effectively.',
+      "Implemented an upgrade to company's market data database structure, increased the storage capacity by 20 times, and improved the data retrieval speed by 10 times.",
+      'Developed a generic Excel report-generation module, resulting in a 30% reduction in manual effort for custom reporting tasks.',
+      'Enhanced a React JS, Node JS, Python & Java based Market Watch web app by incorporating Excel-like features, enabling traders to manipulate and analyze data more effectively.',
       'Developed a microservice module using Python to handle CSV file-based integrations.',
-      'Created a SQL workbench-like tool using React JS and Python that empowers middle office teams to efficiently modify static data for companies, leading to a significant threefold increase in processing speed.',
-      'Participated in the successful transition of the entire IT infrastructure, shifting from virtual machines (VMs) to a Kubernetes-based architecture.'
+      'Developed a database administration tool using React JS and Python, empowering middle office teams to efficiently modify static data for companies, leading to a 300% increase in processing speed.',
+      'Collaborated with the DevOps team to successfully migrate from VM-based deployment to a Kubernetes environment.'
     ],
   },
   {
@@ -361,10 +346,10 @@ export const experiences: ExperienceInterface[] = [
       "AWS",
     ],
     achievements: [
-      'Developed a coupon redemption system using Next JS and Node JS, significantly enhancing customer stickiness and attracting more enterprises to engage in collaborative partnerships.',
-      'Developed selenium web crawlers to automate the scraping of digital marketing data, replacing the need for daily manual labor.',
+      'Developed a coupon redemption system utilising Next JS and Node JS, leading to a substantial increase in customer retention and doubling the participation of enterprises in collaborative partnerships.',
+      'Implemented Selenium web crawlers to automate the extraction of digital marketing data, eliminating 2 manual workforce.',
       'Continuously improved features on a loan website using React JS and Django, resulting in a more user-friendly experience.',
-      'Resolved bugs in a React Native based mobile loan application, enhancing user experience on mobile devices.',
+      'Revamped and fixed over 200 unit test and integration test cases for migrating the loan website backend to microservices.',
     ],
     links: [
       {
@@ -388,7 +373,7 @@ export const experiences: ExperienceInterface[] = [
       "JavaScript",
     ],
     achievements: [
-      "Created a dashboard website using pure HTML, CSS, and JavaScript that seamlessly connects to the robot's API, allowing users to remotely control the robot and providing an intuitive interface for monitoring the robot's activities.",
+      "Developed a dashboard website using pure HTML, CSS, and JavaScript that seamlessly connects to robot's API with WebSocket, enabling users to remotely control the robot and providing an intuitive interface for monitoring the robot’s state.",
       'Developed a work recording program using ROS and Python, enabling users to visualize the progress of robot tasks on a 3D map.'
     ],
     links: [
@@ -442,8 +427,8 @@ export const projects: ProjectsInterface[] = [
 		title: "GameHub",
 		nickname: "GameHub",
 		description: [
-			'Developed an intuitive Next JS application with a Web 3.0 style interface for the purpose of selling second-hand games.',
-			'Engineered the back-end system using Spring Boot, hosting it in Render and using both Supabase and PostgreSQL as the storage.'
+			'Developed an intuitive web application using TypeScript and Next JS, aimed at streamlining the process of selling used video games.',
+			'Engineered the back-end system using Java Spring Boot and Hibernate ORM, and emphasized unit testing with JUnit.'
 		],
 		image:
 			require("../assets/game_images/projects/gamehub.png"),
@@ -460,14 +445,6 @@ export const projects: ProjectsInterface[] = [
 		category: "web app",
 		links: [
 			{
-				title: 'Source Code (Frontend)',
-				address: 'https://github.com/C-M-limited/frontend-gamehub'
-			},
-			{
-				title: 'Source Code (Backend)',
-				address: 'https://github.com/C-M-limited/backend-gamehub'
-			},
-			{
 				title: 'Website',
 				address: 'https://stupendous-stroopwafel-452aba.netlify.app'
 			},
@@ -478,8 +455,7 @@ export const projects: ProjectsInterface[] = [
 		title: "Poker Game (Big Two)",
 		nickname: "BigTwo",
 		description: [
-		'Developed a captivating online poker game with strict adherence to Object-Oriented Programming (OOP) principles.',
-		'Utilized Java GUI for the interface and integrated Web Sockets to facilitate online multiplayer games for up to four players.'
+		  'Utilized Swing (Java) for the GUI interface and integrated WebSocket to facilitate an online multiplayer poker game.'
 		],
 		image:
 		"https://github.com/bigbigphone2/BigTwoGame/raw/main/Screenshot%202021-12-13%20at%2010.12.58%20PM.png",
@@ -491,7 +467,7 @@ export const projects: ProjectsInterface[] = [
 		category: "computer app",
 		links: [
 			{
-				title: 'Source Code',
+				title: 'Download link',
 				address: 'https://github.com/bigbigphone2/BigTwoGame'
 			}
 		]
@@ -515,10 +491,6 @@ export const projects: ProjectsInterface[] = [
 		category: "web app",
 		links: [
 		{
-			title: 'Source Code',
-			address: 'https://github.com/bigbigphone2/Character-GPT'
-		},
-		{
 			title: 'Website',
 			address: 'https://character-gpt-mu.vercel.app'
 		}
@@ -541,10 +513,6 @@ export const projects: ProjectsInterface[] = [
 		],
 		category: "web app",
 		links: [
-			{
-				title: 'Source Code',
-				address: 'https://github.com/bigbigphone2/sudoku-solver'
-			},
 			{
 				title: 'Website',
 				address: 'https://sudoku-solver-eta-sage.vercel.app/'
@@ -612,10 +580,6 @@ export const projects: ProjectsInterface[] = [
 		],
 		category: "web app",
 		links: [
-			{
-				title: 'Source Code',
-				address: 'https://github.com/bigbigphone2/Portfolio-Game'
-			},
 			{
 				title: 'Website',
 				address: 'https://portfolio-game-three.vercel.app'

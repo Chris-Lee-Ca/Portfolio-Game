@@ -106,7 +106,7 @@ const Home = () => {
     return (
         <Container>
             <AppBar>
-                <LinkIcon href={Bio.portfolio} target="display"><WebIcon/></LinkIcon>
+                {/* <LinkIcon href={Bio.portfolio} target="display"><WebIcon/></LinkIcon> */}
                 <LinkIcon href={Bio.linkedin} target="display"><LinkedInIcon/></LinkIcon>
                 <LinkIcon href={Bio.github} target="display"><GitHubIcon/></LinkIcon>
             </AppBar>
