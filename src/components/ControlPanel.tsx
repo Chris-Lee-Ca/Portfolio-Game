@@ -107,12 +107,12 @@ const ControlPanel = (props: ControlPanelPropsInterface) => {
         <Container>
             <InenerContainer container>
                 <DirectionKeyContainer item xs={6}>
-                    <Box>
+                    <Box component="div">
                         <ControlButton style={{marginBottom: '0px'}} type="direction" correspondingKeys={["ArrowUp"]} onClick={()=>handleOnClickArrowButton('ArrowUp')}>
                             <ArrowDropUpIcon/>
                         </ControlButton>
                     </Box>
-                    <Box display={'flex'}>
+                    <Box component="div" display={'flex'}>
                         <ControlButton type="direction" correspondingKeys={["ArrowLeft"]} onClick={()=>handleOnClickArrowButton('ArrowLeft')}>
                             <ArrowLeftIcon/>
                         </ControlButton>

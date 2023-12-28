@@ -18,10 +18,12 @@ const SkillsContainer = styled(Box)({
     marginTop: '10px',
     display: 'flex',
     justifyContent: 'center',
+    maxWidth: '400px',
 })
 
 const SkillWrapper = styled(Box)({
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
     gap: '8px',
 })
