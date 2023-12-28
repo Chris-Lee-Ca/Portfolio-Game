@@ -54,9 +54,9 @@ const SchoolPopUpWindow = (props: SchoolPopUpWindowPropsInterface) => {
         <>
             <Title>{hku.school}</Title>
             <Degree>{hku.degree}</Degree>
-            <Box>
+            <Box component="div">
                 {hku.desc.map((description, index)=>
-                    <Box key={index} mb={'15px'}>
+                    <Box component="div" key={index} mb={'15px'}>
                         <SubTitle>{description.subTitle}</SubTitle>
                         <Content>{description.content}</Content>
                     </Box>
