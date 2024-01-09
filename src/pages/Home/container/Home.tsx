@@ -149,10 +149,16 @@ import { HomePopUp } from "../../../components/HomePopUp";
 const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.primary,
     height: '100vh',
+    maxHeight: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
 })
 
 const AppBar = styled(Box)({
