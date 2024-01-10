@@ -71,7 +71,7 @@ export const Bio: BioInterface = {
     description: "I am a dedicated and self-driven software engineer with practical expertise in developing full-stack web applications and being part of the Agile teams.",
     github: "https://github.com/bigbigphone2",
     resume: "https://drive.google.com/file/d/1WMuEvBOnKK89nAqQGVgnRn_6yYr5RNuO/view?usp=sharing",
-    linkedin: "http://linkedin.com/in/yat-hei-lee",
+    linkedin: "http://linkedin.com/in/chris-lee-bed",
 	  portfolio: 'https://www.yatheilee.xyz/'
 };
   
@@ -239,7 +239,7 @@ export const skills: SkillInterface[] = [
       {
         name: "Git",
         image:
-          "https://camo.githubusercontent.com/fbfcb9e3dc648adc93bef37c718db16c52f617ad055a26de6dc3c21865c3321d/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6769742d73636d2f6769742d73636d2d69636f6e2e737667",
+          require("../assets/game_images/skills/git-icon.png"),
       },
       {
         name: "GitHub",
@@ -259,7 +259,7 @@ export const skills: SkillInterface[] = [
       {
         name: "Figma",
         image:
-          "https://camo.githubusercontent.com/ed93c2b000a76ceaad1503e7eb9356591b885227e82a36a005b9d3498b303ba5/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f6669676d612f6669676d612d69636f6e2e737667",
+        require("../assets/game_images/skills/figma-icon.png"),
       },
       {
         name: "Linux",
@@ -289,7 +289,7 @@ export const skills: SkillInterface[] = [
       {
         name: "Postman",
         image:
-          "https://camo.githubusercontent.com/93b32389bf746009ca2370de7fe06c3b5146f4c99d99df65994f9ced0ba41685/68747470733a2f2f7777772e766563746f726c6f676f2e7a6f6e652f6c6f676f732f676574706f73746d616e2f676574706f73746d616e2d69636f6e2e737667",
+        require("../assets/game_images/skills/postman-icon.png"),
       },
     ],
   },
@@ -319,12 +319,13 @@ export const experiences: ExperienceInterface[] = [
       "K8s",
     ],
     achievements: [
-      "Implemented an upgrade to company's market data database structure, increased the storage capacity by 20 times, and improved the data retrieval speed by 10 times.",
+      "Collaborated closely with the research team to implement an upgrade to the company's market data database structure, increasing the storage capacity by 20 times, and improving the data retrieval speed by 10 times.",
       'Developed a generic Excel report-generation module, resulting in a 30% reduction in manual effort for custom reporting tasks.',
       'Enhanced a React JS, Node JS, Python & Java based Market Watch web app by incorporating Excel-like features, enabling traders to manipulate and analyze data more effectively.',
+      'Collaborated with the DevOps team and a team of 9 engineers to successfully plan and execute the migration from VM-based deployment to a Kubernetes environment.',
       'Developed a microservice module using Python to handle CSV file-based integrations.',
-      'Developed a database administration tool using React JS and Python, empowering middle office teams to efficiently modify static data for companies, leading to a 300% increase in processing speed.',
-      'Collaborated with the DevOps team to successfully migrate from VM-based deployment to a Kubernetes environment.'
+      'Led a new team member to develop a database administration tool using React JS and Python, empowering middle office teams to efficiently modify static data for companies, leading to a 300% increase in processing speed.',
+      'Diagnosed and fixed issues causing slowness in the internal frontend table library, enhancing user experience across all applications.'
     ],
   },
   {
@@ -348,7 +349,7 @@ export const experiences: ExperienceInterface[] = [
     achievements: [
       'Developed a coupon redemption system utilising Next JS and Node JS, leading to a substantial increase in customer retention and doubling the participation of enterprises in collaborative partnerships.',
       'Implemented Selenium web crawlers to automate the extraction of digital marketing data, eliminating 2 manual workforce.',
-      'Continuously improved features on a loan website using React JS and Django, resulting in a more user-friendly experience.',
+      'Continuously improved features on a loan website using React JS and Django with a team of 5 engineers.',
       'Revamped and fixed over 200 unit test and integration test cases for migrating the loan website backend to microservices.',
     ],
     links: [
