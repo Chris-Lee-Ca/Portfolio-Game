@@ -1,7 +1,7 @@
-import { ReactElement } from "react"
 import { PlayerContextProvider } from "./PlayerContext"
 import { GameInfoContextProvider } from "./GameInfoContext"
 import { DialogContextProvider } from "./DialogContext"
+import { GameStaticDataContextProvider } from "./GameStaticDataContext"
 
 export const AppContextProvider = ({children}: any) => {
     return (
@@ -9,7 +9,9 @@ export const AppContextProvider = ({children}: any) => {
             <PlayerContextProvider>
                 <GameInfoContextProvider>
                     <DialogContextProvider>
-                        {children}
+                        <GameStaticDataContextProvider>
+                            {children}
+                        </GameStaticDataContextProvider>
                     </DialogContextProvider>
                 </GameInfoContextProvider>
             </PlayerContextProvider>

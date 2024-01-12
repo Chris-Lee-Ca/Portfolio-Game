@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { Box, Typography } from "@mui/material";
 import CustomStyle from "../../../../Theme/CustomStyle";
 import { Facing, OnTopItemType } from "../../../../data/mapDesign";
-import { projects } from "../../../../data/constants";
 import StyleConfig from "../../../../Theme/StyleConfig";
+import { useGameStaticDataState } from "../../../../Context/GameStaticDataContext";
 
 const Container = styled(Box)({
     position: 'relative',
@@ -52,6 +52,7 @@ interface PaintingBoxPropsInterface{
 const PaintingBox = (props: PaintingBoxPropsInterface) => {
 
     const {facing, onTopItemType} = props;
+    const projects = useGameStaticDataState().data?.allProject ?? [];
     const currentProject = projects.find((project)=> project.nickname === onTopItemType) || projects[0];
 
     return (
@@ -59,7 +60,7 @@ const PaintingBox = (props: PaintingBoxPropsInterface) => {
             <Container>
                 <ImageWrapper>
                     <Img 
-                        src={currentProject.image}
+                        src={currentProject.image.asset.url}
                     />
                 </ImageWrapper>
                 <Title>{currentProject.title}</Title>

@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { Box, Grid, Typography } from "@mui/material";
-import { ExperienceInterface, education } from "../../data/constants";
+import { Experience } from "../../Context/GameStaticDataContext";
 import CustomStyle from "../../Theme/CustomStyle";
+import SanityBlockContent from "../template/SanityBlockContent";
 
 const Title = styled(Typography)({
     fontWeight: 'bolder',
@@ -27,8 +28,9 @@ const SkillsContainer = styled(Box)({
 
 const SkillWrapper = styled(Box)({
     display: 'flex',
+    justifyContent: 'center',
     flexWrap: 'wrap',
-    gap: '8px'
+    gap: '8px',
 })
 
 const Skill = styled(Box)({
@@ -77,7 +79,7 @@ const Button = styled('a')({
 });
 
 interface CompanyPopUpWindowPropsInterface{
-    experience: ExperienceInterface;
+    experience: Experience;
 }
 
 const CompanyPopUpWindow = (props: CompanyPopUpWindowPropsInterface) => {
@@ -93,21 +95,12 @@ const CompanyPopUpWindow = (props: CompanyPopUpWindowPropsInterface) => {
                 <SkillWrapper>
                     {experience.skills.map((skill, index)=> 
                         <Skill key={index}>• {skill}</Skill>
-                        )}
+                    )}
                 </SkillWrapper>
             </SkillsContainer>
-            <Description>{experience.desc}</Description>
-            <Typography mt={2} fontWeight={800} fontSize={'15px'}>Key Achievements:</Typography>
-            {experience.achievements.map((achievement, index)=>
-                <Achievements key={index}>
-                    <Achievement>{achievement}</Achievement>
-                </Achievements>
-            )}
-            <ButtonGroup>
-                {experience?.links?.map((link, index) => 
-                    <Button key={index} href={link.address} target='new'>Enter Company</Button>
-                )}
-            </ButtonGroup>
+            <SanityBlockContent content={experience.descriptionRaw}/>
+            <Typography mt={1} fontWeight={800} fontSize={'15px'}>Key Achievements:</Typography>
+            <SanityBlockContent content={experience.achievementsRaw}/>
         </>
 
     )

@@ -1,4 +1,4 @@
-import { ExperienceInterface, ProjectsInterface, education, experiences, projects } from "../../data/constants";
+import { Education, Experience, Project, useGameStaticDataState } from "../../Context/GameStaticDataContext";
 import { PopUpWindowType } from "../../data/popUpWindow";
 import CompanyPopUpWindow from "./CompanyPopUpWindow";
 import IntroPopUpWindow from "./IntroPopUpWindow";
@@ -22,6 +22,7 @@ const widowTypeMapping : any = {
 const PopUpWindowFactory = (props: PopUpWindowFactoryProps)=> {
 
     const {windowType} = props;
+    const gameStaticData = useGameStaticDataState().data;
 
     if (windowType === 'intro'){
         return (
@@ -40,21 +41,25 @@ const PopUpWindowFactory = (props: PopUpWindowFactoryProps)=> {
                 <SkillsPopUpWindow windowType = {windowType}/>
             </PopUpWindow>);
     }else if (windowType === 'school'){
+        const educations = gameStaticData?.allEducation ?? [];
+        const hku = educations[0];
         return (
-            <PopUpWindow imageSrc={education[0].img}>
-                <SchoolPopUpWindow/>
+            <PopUpWindow imageSrc={hku.image.asset.url}>
+                <SchoolPopUpWindow education={hku as Education}/>
             </PopUpWindow>);
     }else if (["company_yau_lee", "company_pl", "company_red_cliff"].includes(windowType)){
+        const experiences = gameStaticData?.allExperience ?? [];
         const experience = experiences.find((experience) => experience.company === widowTypeMapping[windowType]);
         return (
-            <PopUpWindow imageSrc={experience?.img}>
-                <CompanyPopUpWindow experience={experience as ExperienceInterface}/>
+            <PopUpWindow imageSrc={experience?.image.asset.url}>
+                <CompanyPopUpWindow experience={experience as Experience}/>
             </PopUpWindow>);
     }else if (['GameHub', 'BigTwo', 'CharacterGPT', 'Sudoku', 'FinalYearProject', 'ArduinoCar', 'ThisGame'].includes(windowType)){
+        const projects = gameStaticData?.allProject ?? [];
         const project = projects.find((project) => project.nickname === windowType);
         return (
-            <PopUpWindow imageSrc={project?.image}>
-                <ProjectPopUpWindow project={project as ProjectsInterface}/>
+            <PopUpWindow imageSrc={project?.image.asset.url}>
+                <ProjectPopUpWindow project={project as Project}/>
             </PopUpWindow>);
     }else{
         console.debug('Unhandle Pop Up window type');

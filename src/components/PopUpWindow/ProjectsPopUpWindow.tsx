@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { Box, Grid, Typography } from "@mui/material";
-import { ExperienceInterface, ProjectsInterface, education } from "../../data/constants";
+import { Box, Typography } from "@mui/material";
+import { Project } from "../../Context/GameStaticDataContext";
 import CustomStyle from "../../Theme/CustomStyle";
+import SanityBlockContent from "../template/SanityBlockContent";
 
 const Title = styled(Box)({
     fontWeight: 'bolder',
@@ -33,15 +34,8 @@ const Skill = styled(Box)({
     fontWeight: '400'
 })
 
-const KeyFeatures = styled('ul')({
-    margin: '8px 30px 6px 0px'
-})
-
-const KeyFeature = styled('li')({
-    width: '100%',
-    fontWeight: 'normal',
-    marginTop: '10px',
-    margin: '5px 5px 5px 5px'
+const KeyFeatures = styled(Box)({
+    margin: '0px 30px 6px 0px'
 })
 
 const ButtonGroup = styled(Box)({
@@ -72,7 +66,7 @@ const Button = styled('a')({
 });
 
 interface ProjectPopUpWindowPropsInterface{
-    project: ProjectsInterface;
+    project: Project;
 }
 
 const ProjectPopUpWindow = (props: ProjectPopUpWindowPropsInterface) => {
@@ -91,13 +85,11 @@ const ProjectPopUpWindow = (props: ProjectPopUpWindowPropsInterface) => {
             </SkillsContainer>
             <Typography mt={2} fontWeight={800} fontSize={'20px'}>Key Features:</Typography>
             <KeyFeatures>
-            {project.description.map((desc, index)=>
-                <KeyFeature key={index}>{desc}</KeyFeature>
-            )}
+                <SanityBlockContent content={project.descriptionRaw}/>
             </KeyFeatures>
             <ButtonGroup>
                 {project?.links?.map((link, index) => 
-                    <Button key={index} href={link.address} target='new'>{link.title}</Button>
+                    <Button key={index} href={link.url} target='new'>{link.title}</Button>
                 )}
             </ButtonGroup>
         </>

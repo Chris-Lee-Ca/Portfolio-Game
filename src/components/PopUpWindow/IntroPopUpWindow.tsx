@@ -25,8 +25,8 @@ const IntroPopUpWindow = (props: IntroPopUpWindowPropsInterface) => {
     return (
         <>
             <Title>About this World</Title>
-            <Content>This world is created by <Span>TypeScript</Span>, <Span>React JS</Span> and <Span>Material UI</Span>.</Content>
-            <Content>There are many memories scattered across the world.</Content>
+            <Content>This world is created by <Span>TypeScript</Span>, <Span>React JS</Span> and <Span>Material UI</Span>,</Content>
+            <Content>Memories from <Span>Sanity (headless CMS)</Span>are scattered across the world.</Content>
             <Content>Try to capture them.</Content>
         </>
 

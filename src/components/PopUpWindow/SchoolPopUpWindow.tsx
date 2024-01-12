@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Grid, Typography } from "@mui/material";
-import { education } from "../../data/constants";
+import { Education } from "../../Context/GameStaticDataContext";
+import SanityBlockContent from "../template/SanityBlockContent";
 
 const Title = styled(Typography)({
     fontWeight: 'bolder',
@@ -10,7 +11,6 @@ const Title = styled(Typography)({
 const Degree = styled(Typography)({
     fontWeight: 'bold',
     fontSize: '15px',
-    marginBottom: '20px'
 })
 
 const SubTitle = styled(Typography)({
@@ -44,27 +44,21 @@ const Skill = styled(Box)({
 })
 
 interface SchoolPopUpWindowPropsInterface{
+    education: Education
 }
 
 const SchoolPopUpWindow = (props: SchoolPopUpWindowPropsInterface) => {
 
-    const hku = education[0];
+    const {education} = props;
 
     return (
         <>
-            <Title>{hku.school}</Title>
-            <Degree>{hku.degree}</Degree>
-            <Box component="div">
-                {hku.desc.map((description, index)=>
-                    <Box component="div" key={index} mb={'15px'}>
-                        <SubTitle>{description.subTitle}</SubTitle>
-                        <Content>{description.content}</Content>
-                    </Box>
-                )}
-            </Box>
+            <Title>{education.school}</Title>
+            <Degree>{education.degree}</Degree>
+            <SanityBlockContent content={education.descriptionRaw}/>
             <SkillsContainer>
                 <SkillWrapper>
-                    {hku.skills.map((skill, index)=> 
+                    {education.skills.map((skill, index)=> 
                         <Skill key={index}>• {skill}</Skill>
                     )}
                 </SkillWrapper>
