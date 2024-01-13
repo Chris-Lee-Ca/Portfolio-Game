@@ -17,7 +17,7 @@ export type Experience = {
     date: string,
     descriptionRaw: any[],
     skills: string[],
-    achievementsRaw: any[]
+    achievements: string[]
 }
 
 export type Project = {

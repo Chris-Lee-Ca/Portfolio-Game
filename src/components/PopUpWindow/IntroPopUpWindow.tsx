@@ -10,7 +10,8 @@ const Title = styled(Box)({
 const Content = styled(Box)({
     width: '100%',
     fontWeight: 'bold',
-    textDecoration: 'underline '
+    textDecoration: 'underline',
+    textAlign: 'center'
 })
 
 const Span = styled('span')({

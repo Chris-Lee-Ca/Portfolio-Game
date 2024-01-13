@@ -26,7 +26,7 @@ export const getAllGameData = gql`
             date,
             descriptionRaw,
             skills,
-            achievementsRaw
+            achievements
         },
         allProject{
             title,

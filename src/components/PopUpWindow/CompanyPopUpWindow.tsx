@@ -43,7 +43,7 @@ const Description = styled(Typography)({
 })
 
 const Achievements = styled('ul')({
-    margin: '8px 30px 6px 0px'
+    margin: '8px 0px 6px 0px'
 })
 
 const Achievement = styled('li')({
@@ -100,7 +100,11 @@ const CompanyPopUpWindow = (props: CompanyPopUpWindowPropsInterface) => {
             </SkillsContainer>
             <SanityBlockContent content={experience.descriptionRaw}/>
             <Typography mt={1} fontWeight={800} fontSize={'15px'}>Key Achievements:</Typography>
-            <SanityBlockContent content={experience.achievementsRaw}/>
+            {experience.achievements.map((achievement, index)=>
+                <Achievements key={index}>
+                    <Achievement>{achievement}</Achievement>
+                </Achievements>
+            )}
         </>
 
     )

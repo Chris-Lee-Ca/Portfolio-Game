@@ -47,7 +47,7 @@ const experience = {
         name: "achievements",
         title: "Achievements",
         type: "array",
-        of: [{ type: "block" }]
+        of: [{ type: "string" }]
       }
     ]
   }
