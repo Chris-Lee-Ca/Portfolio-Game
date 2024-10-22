@@ -9,7 +9,3 @@ I also use a little bit Three.js to create a 3d model in the front page.
 ## Tech Using
 
 <p>Typescript, React.JS, Material UI, Sanity, GraphQL</p>
-
-## Studio Deployed To
-
-https://chris-portfoilo.sanity.studio/
