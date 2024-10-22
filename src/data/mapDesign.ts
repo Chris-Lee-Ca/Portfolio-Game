@@ -2,10 +2,8 @@ import {
     CompanyPLTechEntranceRoute,
     CompanyRedCliffEntranceRoute,
     CompanyYauLeeEntranceRoute,
-    E_DeadEndRoute,
     E_TJunctionRoute,
     E_TurnRoute,
-    N_DeadEndRoute,
     N_TJunctionRoute,
     N_TurnRoute,
     S_TJunctionRoute,
@@ -17,7 +15,6 @@ import {
     SkillsOthersRoute,
     W_TJunctionRoute,
     W_TurnRoute,
-    XJunctionRoute,
     arduinoCarRoute,
     bigTwoRoute,
     characterGPTRoute,
@@ -36,7 +33,6 @@ import {
     thisGameRoute,
     verticalRoute,
 } from "./Objects/RoadObject";
-import { E_CornerBrickWall, N_CornerBrickWall, N_StraightBrickWall, W_CornerBrickWall } from "./Objects/WallObject";
 
 export type MapType = "Road" | "Wall" | "Empty";
 export type OnTopItemType =

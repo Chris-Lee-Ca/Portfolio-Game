@@ -47,10 +47,6 @@ const MapBox = (props: MapBoxPropsInterface) => {
     const dialogState = useDialogState().dialogState;
     const setDialogState = useDialogState().setDialogState;
 
-    const handleKeyBoardEvent = (e: any) => {
-        throw new Error("Child component must override the handleKeyBoardEvent method.");
-    };
-
     const handleAddMapEdge = (): CSSProperties => {
         const borderStyle: any = {};
         const border = CustomStyle.border.mapBorder;

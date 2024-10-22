@@ -1,9 +1,7 @@
-import { ReactElement } from "react";
 import MapBox from "./MapBox";
 import { Facing, MapType, OnTopItemType } from "../../data/mapDesign";
 import RoadBoxFactory from "./RoadBox/RoadBoxFactory";
 import WallBoxFactory from "./BarrierBox/WallBoxFactory";
-import { Box } from "@mui/material";
 import BoardBox from "./OnTopItem/BoardBox/BoardBox";
 import PaperBox from "./OnTopItem/PaperBox/PaperBox";
 import SkillsBox from "./OnTopItem/SkillsBox/SkillsBox";
@@ -22,7 +20,6 @@ interface MapBoxFactoryProps {
     location: [number, number];
     backGroundType: MapType;
     facing: Facing;
-    // shade?: RoadShade; // only exist for road
     reMainingProps?: any;
 }
 

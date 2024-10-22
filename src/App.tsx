@@ -4,7 +4,7 @@ import { AppContextProvider } from "./Context";
 
 import { Analytics } from "@vercel/analytics/react";
 import { ApolloProvider } from "@apollo/client";
-import client from "./apolloClient";
+import client from "./sanity/apolloClient";
 
 function App() {
     return (

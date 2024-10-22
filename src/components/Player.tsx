@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import CustomStyle from "../Theme/CustomStyle";
 import StyleConfig from "../Theme/StyleConfig";
 import PlayerImage from "../assets/game_images/Player.png";
 
@@ -19,12 +18,9 @@ const Img = styled("img")({
     objectFit: "contain",
     width: `${StyleConfig.mapBoxWidth}px`,
     height: `${StyleConfig.mapBoxHeight}px`,
-    // boxShadow: CustomStyle.colors.mainShadow
 });
 
-interface PlayerPropsInterface {
-    // playerFacing: 'N' | 'E' | 'S' | 'W'
-}
+interface PlayerPropsInterface {}
 
 const Player = (props: PlayerPropsInterface) => {
     return (

@@ -1,6 +1,4 @@
-import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
-import CustomStyle from "../../Theme/CustomStyle";
 import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
