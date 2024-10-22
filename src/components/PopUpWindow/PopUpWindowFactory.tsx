@@ -42,9 +42,9 @@ const PopUpWindowFactory = (props: PopUpWindowFactoryProps) => {
         );
     } else if (windowType === "school") {
         const educations = gameStaticData?.allEducation ?? [];
-        const hku = educations[0];
+        const hku = educations.find((education) => education.school === "The University of Hong Kong");
         return (
-            <PopUpWindow imageSrc={hku.image.asset.url}>
+            <PopUpWindow imageSrc={hku?.image.asset.url}>
                 <SchoolPopUpWindow education={hku as Education} />
             </PopUpWindow>
         );
