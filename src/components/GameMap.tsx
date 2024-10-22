@@ -10,39 +10,35 @@ import Player from "./Player";
 import { usePlayerState } from "../Context/PlayerContext";
 
 const Container = styled(Box)({
-    height: '100vh',
-    width: '100vw',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: CustomStyle.colors.primary
-})
+    height: "100vh",
+    width: "100vw",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: CustomStyle.colors.primary,
+});
 
 const MapContainer = styled(Box)({
-    overflow: 'hidden',
+    overflow: "hidden",
     // border: `2px solid ${CustomStyle.colors.mainBlack}`,
-    borderRadius: '10px',
+    borderRadius: "10px",
     backgroundColor: CustomStyle.colors.mainMapBackground,
     boxShadow: CustomStyle.colors.mainShadow,
-
-})
+});
 
 const MapOffSetContainer = styled(Box)({
-    position: 'relative'
-})
+    position: "relative",
+});
 
 const RowMapBoxContainer = styled(Box)({
-    display: 'flex',
-})
+    display: "flex",
+});
 
-
-interface GameMapPropsInterface{
-}
+interface GameMapPropsInterface {}
 
 const GameMap = (props: GameMapPropsInterface) => {
-
-    const {playerPosition} = usePlayerState().playerState;
+    const { playerPosition } = usePlayerState().playerState;
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -50,58 +46,66 @@ const GameMap = (props: GameMapPropsInterface) => {
     useEffect(() => {
         // Function to update window size state
         function handleResize() {
-          setWindowWidth(window.innerWidth);
-          setWindowHeight(window.innerHeight);
+            setWindowWidth(window.innerWidth);
+            setWindowHeight(window.innerHeight);
         }
         // Add event listener to listen for window resize
-        window.addEventListener('resize', handleResize);
-    
+        window.addEventListener("resize", handleResize);
+
         // Clean up the event listener when the component unmounts
         return () => {
-          window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
         };
     }, []);
 
-    const {gameMapWidth, gameMapHeight} = getGameMapSize({
+    const { gameMapWidth, gameMapHeight } = getGameMapSize({
         windowWidth,
-        windowHeight, 
-        mapBoxWidth: StyleConfig.mapBoxWidth, 
+        windowHeight,
+        mapBoxWidth: StyleConfig.mapBoxWidth,
         mapBoxHeight: StyleConfig.mapBoxHeight,
-    })
-
-    const viewPort = getViewPort(
-        {
-            windowWidth,
-            windowHeight, 
-            currentPosition: playerPosition, 
-            mapBoxWidth: StyleConfig.mapBoxWidth, 
-            mapBoxHeight: StyleConfig.mapBoxHeight,
-            mapDesign
-        }
-    );
-
-    const {renderRow, renderCol} = viewPort;
-
-    const {top, left} = getGameMapContainerOffset({
-        currentPosition: playerPosition, 
-        gameMapWidth,
-        gameMapHeight, 
-        mapBoxWidth: StyleConfig.mapBoxWidth, 
-        mapBoxHeight: StyleConfig.mapBoxHeight,
-        viewPort
     });
 
-    
-    
-    const configToMap = (mapDesign: mapBoxDesignInterface[][], renderRow: [number, number], renderCol: [number, number]) => {
-        let map = [];
-        for (let i=renderRow[0]; i<=renderRow[1]; i++){
-            let rowMap = [];
-            for (let j=renderCol[0]; j<=renderCol[1]; j++){
+    const viewPort = getViewPort({
+        windowWidth,
+        windowHeight,
+        currentPosition: playerPosition,
+        mapBoxWidth: StyleConfig.mapBoxWidth,
+        mapBoxHeight: StyleConfig.mapBoxHeight,
+        mapDesign,
+    });
+
+    const { renderRow, renderCol } = viewPort;
+
+    const { top, left } = getGameMapContainerOffset({
+        currentPosition: playerPosition,
+        gameMapWidth,
+        gameMapHeight,
+        mapBoxWidth: StyleConfig.mapBoxWidth,
+        mapBoxHeight: StyleConfig.mapBoxHeight,
+        viewPort,
+    });
+
+    const configToMap = (
+        mapDesign: mapBoxDesignInterface[][],
+        renderRow: [number, number],
+        renderCol: [number, number],
+    ) => {
+        const map = [];
+        for (let i = renderRow[0]; i <= renderRow[1]; i++) {
+            const rowMap = [];
+            for (let j = renderCol[0]; j <= renderCol[1]; j++) {
                 //TODO
-                const mapBoxConfig = (i < mapDesign.length && j < mapDesign[0].length) ? mapDesign[i][j] : emptyBox;
-                const {backGroundType, facing} = mapBoxConfig;
-                rowMap.push(<MapBoxFactory key={`${i}-${j}`} location={[i,j]} backGroundType={backGroundType} facing={facing} reMainingProps={{...mapBoxConfig}}/>);
+                const mapBoxConfig = i < mapDesign.length && j < mapDesign[0].length ? mapDesign[i][j] : emptyBox;
+                const { backGroundType, facing } = mapBoxConfig;
+                rowMap.push(
+                    <MapBoxFactory
+                        key={`${i}-${j}`}
+                        location={[i, j]}
+                        backGroundType={backGroundType}
+                        facing={facing}
+                        reMainingProps={{ ...mapBoxConfig }}
+                    />,
+                );
             }
             map.push(rowMap);
         }
@@ -111,24 +115,19 @@ const GameMap = (props: GameMapPropsInterface) => {
     const mapToRender = configToMap(mapDesign, renderRow, renderCol);
 
     return (
-        <Container >
+        <Container>
             <MapContainer width={`${gameMapWidth}px`} height={`${gameMapHeight}px`}>
                 <MapOffSetContainer top={`${top}px`} left={`${left}px`}>
-                    {
-                        mapToRender.map((rowMapBoxes, index) => (
-                            <RowMapBoxContainer key={index}>
-                                {
-                                rowMapBoxes.map((mapBox, idnex) => (
-                                    mapBox
-                                ))}
-                            </RowMapBoxContainer>
-                        ))
-                    }
+                    {mapToRender.map((rowMapBoxes, index) => (
+                        <RowMapBoxContainer key={index}>
+                            {rowMapBoxes.map((mapBox, idnex) => mapBox)}
+                        </RowMapBoxContainer>
+                    ))}
                     {/* <Player/> */}
                 </MapOffSetContainer>
             </MapContainer>
         </Container>
-    )
-}
+    );
+};
 
 export default GameMap;

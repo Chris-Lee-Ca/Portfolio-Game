@@ -18,90 +18,66 @@ import FlowerSeaBox from "./OnTopItem/FlowerSeaBox/FlowerSeaBox";
 import TreeBox from "./OnTopItem/TreeBox/TreeBox";
 import GlassBox from "./OnTopItem/GlassBox/GlassBox";
 
-interface MapBoxFactoryProps{
-    location: [number, number],
-    backGroundType: MapType,
-    facing: Facing
+interface MapBoxFactoryProps {
+    location: [number, number];
+    backGroundType: MapType;
+    facing: Facing;
     // shade?: RoadShade; // only exist for road
-    reMainingProps? : any;
-
+    reMainingProps?: any;
 }
 
-const backGroundFactory = (props: MapBoxFactoryProps)=> {
-    const {location, backGroundType, facing} = props;
+const backGroundFactory = (props: MapBoxFactoryProps) => {
+    const { location, backGroundType, facing } = props;
     switch (backGroundType) {
-        case 'Road':
+        case "Road":
             return (
-                <RoadBoxFactory location={location} facing={facing} shade={props.reMainingProps.shade || 'straight'}/>
+                <RoadBoxFactory location={location} facing={facing} shade={props.reMainingProps.shade || "straight"} />
             );
-        case 'Wall':
+        case "Wall":
             return (
-                <WallBoxFactory location={location} facing={facing} shade={props.reMainingProps.shade || 'straight'}/>
+                <WallBoxFactory location={location} facing={facing} shade={props.reMainingProps.shade || "straight"} />
             );
     }
-}
+};
 
-const onTopItemFactory = (props: MapBoxFactoryProps)=> {
-    const {location, facing} = props;
+const onTopItemFactory = (props: MapBoxFactoryProps) => {
+    const { location, facing } = props;
     const onTopItemType = props.reMainingProps.onTopItemType as OnTopItemType;
-    if (onTopItemType === 'Board'){
-        return (
-            <BoardBox location={location} facing={facing}/>
-        );
-    }else if (onTopItemType === 'Paper'){
-        return (
-            <PaperBox location={location} facing={facing}/>
-        );
-    }else if (onTopItemType === 'Skills'){
-        return (
-            <SkillsBox location={location} facing={facing} category={props.reMainingProps.category}/>
+    if (onTopItemType === "Board") {
+        return <BoardBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Paper") {
+        return <PaperBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Skills") {
+        return <SkillsBox location={location} facing={facing} category={props.reMainingProps.category} />;
+    } else if (onTopItemType === "School") {
+        return <SchoolBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Company") {
+        return <CompanyBox location={location} facing={facing} />;
+    } else if (
+        ["GameHub", "BigTwo", "CharacterGPT", "Sudoku", "FinalYearProject", "ArduinoCar", "ThisGame"].includes(
+            onTopItemType,
         )
-    }else if (onTopItemType === 'School'){
-        return (
-            <SchoolBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Company'){
-        return (
-            <CompanyBox location={location} facing={facing}/>
-        )
-    }else if (['GameHub', 'BigTwo', 'CharacterGPT', 'Sudoku', 'FinalYearProject', 'ArduinoCar', 'ThisGame'].includes(onTopItemType)){
-        return (
-            <PaintingBox location={location} facing={facing} onTopItemType={onTopItemType}/>
-        )
-    }else if (onTopItemType === 'FinishLine'){
-        return (
-            <FinishLineBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Balloon'){
-        return (
-            <BalloonBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Interactable'){
-        return (
-            <InteractableBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Flower'){
-        return (
-            <FlowerBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'FlowerSea'){
-        return (
-            <FlowerSeaBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Tree'){
-        return (
-            <TreeBox location={location} facing={facing}/>
-        )
-    }else if (onTopItemType === 'Glass'){
-        return (
-            <GlassBox location={location} facing={facing}/>
-        )
+    ) {
+        return <PaintingBox location={location} facing={facing} onTopItemType={onTopItemType} />;
+    } else if (onTopItemType === "FinishLine") {
+        return <FinishLineBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Balloon") {
+        return <BalloonBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Interactable") {
+        return <InteractableBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Flower") {
+        return <FlowerBox location={location} facing={facing} />;
+    } else if (onTopItemType === "FlowerSea") {
+        return <FlowerSeaBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Tree") {
+        return <TreeBox location={location} facing={facing} />;
+    } else if (onTopItemType === "Glass") {
+        return <GlassBox location={location} facing={facing} />;
     }
-}
+};
 
-const MapBoxFactory = (props: MapBoxFactoryProps)=> {
-
-    const {location, backGroundType, facing} = props;
+const MapBoxFactory = (props: MapBoxFactoryProps) => {
+    const { location, backGroundType, facing } = props;
 
     return (
         <MapBox location={location}>
@@ -109,7 +85,7 @@ const MapBoxFactory = (props: MapBoxFactoryProps)=> {
                 {backGroundFactory(props)}
                 {onTopItemFactory(props)}
             </>
-       </MapBox>
+        </MapBox>
     );
 };
 

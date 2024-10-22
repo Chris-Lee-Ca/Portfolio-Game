@@ -10,7 +10,6 @@
 // import GitHubIcon from '@mui/icons-material/GitHub';
 // import WebIcon from '@mui/icons-material/Web';
 
-
 // const Container = styled(Box)({
 //     backgroundColor: CustomStyle.colors.primary,
 //     height: '100vh',
@@ -139,8 +138,8 @@ import "animate.css";
 import CustomStyle from "../../../Theme/CustomStyle";
 import { Bio } from "../../../data/constants";
 
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { Loader } from "../../../components/Loader";
 import Island from "../../../models/Island";
 import Sky from "../../../models/Sky";
@@ -148,40 +147,40 @@ import { HomePopUp } from "../../../components/HomePopUp";
 
 const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.primary,
-    height: '100vh',
-    maxHeight: '100%',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'fixed',
+    height: "100vh",
+    maxHeight: "100%",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "fixed",
     top: 0,
     bottom: 0,
     left: 0,
     right: 0,
-})
+});
 
 const AppBar = styled(Box)({
-    position: 'absolute',
+    position: "absolute",
     top: 5,
-    width: '100%',
-    maxWidth: '1000px',
-    display: 'flex',
-    justifyContent: 'flex-end',
+    width: "100%",
+    maxWidth: "1000px",
+    display: "flex",
+    justifyContent: "flex-end",
     zIndex: 99,
-})
+});
 
-const LinkIcon = styled('a')({
-    padding: '20px 20px',
-    cursor: 'pointer',
-    '&:hover': {
+const LinkIcon = styled("a")({
+    padding: "20px 20px",
+    cursor: "pointer",
+    "&:hover": {
         color: CustomStyle.colors.mainGrey,
     },
-})
+});
 
 const initialIslandForScreenSize = () => {
     let screenScale, screenPosition;
-    
+
     if (window.innerWidth < 768) {
         screenScale = [2, 2, 2];
         screenPosition = [0, -6.5, -43.4];
@@ -189,13 +188,11 @@ const initialIslandForScreenSize = () => {
         screenScale = [2.5, 2.5, 2.5];
         screenPosition = [0, -10.5, -43.4];
     }
-    return [screenScale as Vector3 , screenPosition as Vector3];
-}
-
+    return [screenScale as Vector3, screenPosition as Vector3];
+};
 
 const Home = () => {
-
-    const [currentStage, setCurrentStage] = useState<string>('front');
+    const [currentStage, setCurrentStage] = useState<string>("front");
     const [isRotating, setIsRotating] = useState<boolean>(false);
 
     const [islandPosition, setIslandPosition] = useState<Vector3>(initialIslandForScreenSize()[1]);
@@ -205,34 +202,39 @@ const Home = () => {
         const adjustIslandForScreenSize = () => {
             const [screenScale, screenPosition] = initialIslandForScreenSize();
             setIslandPosition(screenPosition as Vector3);
-            setIslandScale(screenScale as Vector3)
+            setIslandScale(screenScale as Vector3);
         };
 
         // Add event listener to listen for window resize
-        window.addEventListener('resize', adjustIslandForScreenSize);
-    
+        window.addEventListener("resize", adjustIslandForScreenSize);
+
         // Clean up the event listener when the component unmounts
         return () => {
-          window.removeEventListener('resize', adjustIslandForScreenSize);
+            window.removeEventListener("resize", adjustIslandForScreenSize);
         };
     }, []);
 
     return (
         <Container>
             <AppBar>
-                <Tooltip title="LinkedIn" arrow><LinkIcon href={Bio.linkedin} target="display"><LinkedInIcon/></LinkIcon></Tooltip>
-                <Tooltip title="Github" arrow><LinkIcon href={Bio.github} target="display"><GitHubIcon/></LinkIcon></Tooltip>
+                <Tooltip title="LinkedIn" arrow>
+                    <LinkIcon href={Bio.linkedin} target="display">
+                        <LinkedInIcon />
+                    </LinkIcon>
+                </Tooltip>
+                <Tooltip title="Github" arrow>
+                    <LinkIcon href={Bio.github} target="display">
+                        <GitHubIcon />
+                    </LinkIcon>
+                </Tooltip>
             </AppBar>
-            <HomePopUp currentStage={currentStage}/>
-            <Canvas camera={{ near: 0.1, far: 1000 }} style={{cursor: isRotating ? 'grabbing' : 'grab'}}>
-                <Suspense fallback={<Loader/>}>
+            <HomePopUp currentStage={currentStage} />
+            <Canvas camera={{ near: 0.1, far: 1000 }} style={{ cursor: isRotating ? "grabbing" : "grab" }}>
+                <Suspense fallback={<Loader />}>
                     <directionalLight position={[1, 1, 1]} intensity={4} />
                     <ambientLight intensity={0.5} />
                     <pointLight position={[10, 5, 10]} intensity={2} />
-                    <hemisphereLight
-                        groundColor='#000000'
-                        intensity={1}
-                    />
+                    <hemisphereLight groundColor="#000000" intensity={1} />
                     {/* <Sky/> */}
                     <Island
                         isRotating={isRotating}
@@ -245,8 +247,7 @@ const Home = () => {
                 </Suspense>
             </Canvas>
         </Container>
-    )
-}
+    );
+};
 
 export default Home;
-

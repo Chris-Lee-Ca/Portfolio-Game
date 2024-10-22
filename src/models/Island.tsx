@@ -10,23 +10,19 @@ import { useFrame, useThree } from "@react-three/fiber";
 import islandScene from "../assets/3d/house_on_the_island.glb";
 
 type GLTFResult = GLTF & {
-  nodes: {
-    Object_2: THREE.Mesh;
-  };
-  materials: {
-    palette: THREE.MeshPhysicalMaterial;
-  };
+    nodes: {
+        Object_2: THREE.Mesh;
+    };
+    materials: {
+        palette: THREE.MeshPhysicalMaterial;
+    };
 };
 
 const Island = (props: any) => {
-    const {
-        isRotating,
-        setIsRotating,
-        setCurrentStage,
-    } = props;
+    const { isRotating, setIsRotating, setCurrentStage } = props;
     const { gl, viewport } = useThree();
     const { nodes, materials } = useGLTF(islandScene) as GLTFResult;
-    
+
     const islandRef = useRef<HTMLElement>(null);
     const lastX = useRef(0); // Use a ref for the last mouse x position
     const rotationSpeed = useRef(0);
@@ -36,10 +32,10 @@ const Island = (props: any) => {
         event.stopPropagation();
         event.preventDefault();
         setIsRotating(true);
-    
+
         // Calculate the clientX based on whether it's a touch event or a mouse event
         const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-    
+
         // Store the current clientX position for reference
         lastX.current = clientX;
     };
@@ -48,8 +44,8 @@ const Island = (props: any) => {
         event.stopPropagation();
         event.preventDefault();
         setIsRotating(false);
-      };
-    
+    };
+
     const handlePointerMove = (event: any) => {
         event.stopPropagation();
         event.preventDefault();
@@ -79,14 +75,14 @@ const Island = (props: any) => {
         canvas.addEventListener("pointerdown", handlePointerDown);
         canvas.addEventListener("pointerup", handlePointerUp);
         canvas.addEventListener("pointermove", handlePointerMove);
-    
+
         // Remove event listeners when component unmounts
         return () => {
-          canvas.removeEventListener("pointerdown", handlePointerDown);
-          canvas.removeEventListener("pointerup", handlePointerUp);
-          canvas.removeEventListener("pointermove", handlePointerMove);
+            canvas.removeEventListener("pointerdown", handlePointerDown);
+            canvas.removeEventListener("pointerup", handlePointerUp);
+            canvas.removeEventListener("pointermove", handlePointerMove);
         };
-      }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
+    }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
     useFrame(() => {
         // If not rotating, apply damping to slow down the rotation (smoothly)
@@ -96,7 +92,7 @@ const Island = (props: any) => {
 
             // Stop rotation when speed is very small
             if (Math.abs(rotationSpeed.current) < 0.001) {
-            rotationSpeed.current = 0;
+                rotationSpeed.current = 0;
             }
             // @ts-ignore
             islandRef.current.rotation.y += rotationSpeed.current;
@@ -110,12 +106,11 @@ const Island = (props: any) => {
         // Set the current stage based on the island's orientation
         switch (true) {
             case normalizedRotation >= 5.5 || normalizedRotation <= 0.5:
-                setCurrentStage('front');
+                setCurrentStage("front");
                 break;
             default:
                 setCurrentStage(null);
         }
-
     });
 
     return (
@@ -129,6 +124,6 @@ const Island = (props: any) => {
             />
         </a.group>
     );
-}
+};
 
 export default Island;

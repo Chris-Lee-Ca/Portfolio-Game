@@ -4,43 +4,43 @@ import { gql } from "@apollo/client";
 
 export const getAllGameData = gql`
     query GetAllGameData {
-        allEducation{
-            school,
-            descriptionRaw,
+        allEducation {
+            school
+            descriptionRaw
             image {
-            asset {
-                url
+                asset {
+                    url
+                }
             }
-            },
-            skills,
+            skills
             degree
-        },
-        allExperience{
-            role,
-            company,
+        }
+        allExperience {
+            role
+            company
             image {
-            asset {
-                url
+                asset {
+                    url
+                }
             }
-            },
-            date,
-            descriptionRaw,
-            skills,
+            date
+            descriptionRaw
+            skills
             achievements
-        },
-        allProject{
-            title,
-            nickname,
-            descriptionRaw,
+        }
+        allProject {
+            title
+            nickname
+            descriptionRaw
             image {
-            asset {
-                url
+                asset {
+                    url
+                }
             }
-            },
-            tags,
-            links{
-            title,
-            url
+            tags
+            links {
+                title
+                url
             }
         }
     }

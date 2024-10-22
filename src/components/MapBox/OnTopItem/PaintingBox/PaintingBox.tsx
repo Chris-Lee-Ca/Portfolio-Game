@@ -6,68 +6,63 @@ import StyleConfig from "../../../../Theme/StyleConfig";
 import { useGameStaticDataState } from "../../../../Context/GameStaticDataContext";
 
 const Container = styled(Box)({
-    position: 'relative',
+    position: "relative",
     // boxShadow: CustomStyle.colors.mainShadow,
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-})
+    height: "100%",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+});
 
 const ImageWrapper = styled(Box)({
-    position: 'absolute',
+    position: "absolute",
     border: `4px solid ${CustomStyle.colors.mainBlack}`,
     backgroundColor: CustomStyle.colors.mainWhite,
     boxShadow: CustomStyle.colors.balckShoadow,
     width: `${StyleConfig.mapBoxWidth}px`,
     height: `${StyleConfig.mapBoxHeight}px`,
-    zIndex: 50
-})
+    zIndex: 50,
+});
 
-const Img = styled('img')({
-    objectFit: 'contain',
+const Img = styled("img")({
+    objectFit: "contain",
     width: `100%`,
-    height: `100%`
-})
+    height: `100%`,
+});
 
 const Title = styled(Typography)({
-    position: 'absolute',
-    fontSize: '10px',
+    position: "absolute",
+    fontSize: "10px",
     backgroundColor: CustomStyle.colors.mainTransparent,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     top: `${StyleConfig.mapBoxHeight + 5}px`,
-    zIndex: 50
-})
+    zIndex: 50,
+});
 
-
-interface PaintingBoxPropsInterface{
-    location: [number, number],
-    facing: Facing,
-    onTopItemType: OnTopItemType
+interface PaintingBoxPropsInterface {
+    location: [number, number];
+    facing: Facing;
+    onTopItemType: OnTopItemType;
 }
 
 const PaintingBox = (props: PaintingBoxPropsInterface) => {
-
-    const {facing, onTopItemType} = props;
+    const { facing, onTopItemType } = props;
     const projects = useGameStaticDataState().data?.allProject ?? [];
-    const currentProject = projects.find((project)=> project.nickname === onTopItemType) || projects[0];
+    const currentProject = projects.find((project) => project.nickname === onTopItemType) || projects[0];
 
     return (
         <>
             <Container>
                 <ImageWrapper>
-                    <Img 
-                        src={currentProject.image.asset.url}
-                    />
+                    <Img src={currentProject.image.asset.url} />
                 </ImageWrapper>
                 <Title>{currentProject.title}</Title>
             </Container>
         </>
-
-    )
-}
+    );
+};
 
 export default PaintingBox;

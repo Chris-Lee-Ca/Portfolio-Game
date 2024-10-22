@@ -3,41 +3,36 @@ import { Box } from "@mui/material";
 import { Facing } from "../../../../data/mapDesign";
 
 const Container = styled(Box)({
-    position: 'relative',
+    position: "relative",
     // display: 'flex',
     // justifyContent: 'flex',
     // alignItems: 'flex',
     // backgroundColor: 'red',
     // boxShadow: CustomStyle.colors.mainShadow,
-    height: '100%',
-    width: '100%'
-})
+    height: "100%",
+    width: "100%",
+});
 
-const Img = styled('img')({
+const Img = styled("img")({
     // objectFit: 'cover',
     width: `100%`,
-    height: `100%`
-})
+    height: `100%`,
+});
 
-
-interface FlowerBoxPropsInterface{
-    location: [number, number],
-    facing: Facing,
+interface FlowerBoxPropsInterface {
+    location: [number, number];
+    facing: Facing;
 }
 
 const FlowerBox = (props: FlowerBoxPropsInterface) => {
-
-    const {facing} = props;
+    const { facing } = props;
     return (
         <>
             <Container>
-                <Img 
-                    src={require('../../../../assets/game_images/flower.png')}
-                />
+                <Img src={require("../../../../assets/game_images/flower.png")} />
             </Container>
         </>
-
-    )
-}
+    );
+};
 
 export default FlowerBox;

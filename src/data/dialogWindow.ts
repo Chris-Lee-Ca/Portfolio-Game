@@ -1,1 +1,1 @@
-export type DialogWindowType = 'starting' | 'ending' | 'resume';
+export type DialogWindowType = "starting" | "ending" | "resume";

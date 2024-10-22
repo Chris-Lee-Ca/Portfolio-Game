@@ -9,14 +9,14 @@ import { useGameInfoState } from "../../Context/GameInfoContext";
 import { TransitionProps } from "@mui/material/transitions";
 import { useDialogState } from "../../Context/DialogContext";
 
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 const Transition = forwardRef(function Transition(
     props: TransitionProps & {
-      children: React.ReactElement<any, any>;
+        children: React.ReactElement<any, any>;
     },
     ref: React.Ref<unknown>,
-  ) {
+) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
@@ -24,58 +24,57 @@ const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.mainPaper,
     // height: '300px',
     // width: '300px',
-    padding: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
-})
+    padding: "20px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+});
 
 const InnerContainer = styled(Grid)({
-    minWidth: '350px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-})
+    minWidth: "350px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+});
 
 const ImageContainer = styled(Grid)({
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     // backgroundColor: 'red'
-})
+});
 
-const Img = styled('img')({
-    width: '70%',
-    height: '70%',
-    maxWidth: '150px',
-    maxHeight: '150px',
+const Img = styled("img")({
+    width: "70%",
+    height: "70%",
+    maxWidth: "150px",
+    maxHeight: "150px",
     backgroundColor: CustomStyle.colors.mainWhite,
-    border: `3px solid ${CustomStyle.colors.mainBlack}`
-})
+    border: `3px solid ${CustomStyle.colors.mainBlack}`,
+});
 
 const TextContainer = styled(Grid)({
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-})
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+});
 
-interface DialogWindowPropsInterface{
-    children?: ReactElement,
-    imageSrc: any
+interface DialogWindowPropsInterface {
+    children?: ReactElement;
+    imageSrc: any;
 }
 
 const DialogWindow = (props: DialogWindowPropsInterface) => {
-
-    const {children, imageSrc} = props;
+    const { children, imageSrc } = props;
     const dialogState = useDialogState().dialogState;
     const setDialogState = useDialogState().setDialogState;
 
-    const {isOpenDialogWindow} = dialogState;
-  
+    const { isOpenDialogWindow } = dialogState;
+
     const handleClose = () => {
-        setDialogState({...dialogState, isOpenDialogWindow: false});
+        setDialogState({ ...dialogState, isOpenDialogWindow: false });
     };
 
     return (
@@ -91,21 +90,21 @@ const DialogWindow = (props: DialogWindowPropsInterface) => {
                     aria-label="close"
                     onClick={handleClose}
                     sx={{
-                        position: 'absolute',
+                        position: "absolute",
                         right: 8,
                         top: 8,
                         color: CustomStyle.colors.mainBlack,
                         backgroundColor: CustomStyle.colors.mainGreen,
-                        borderRadius: '100%',
-                        border: `3px solid ${CustomStyle.colors.mainBlack}`
+                        borderRadius: "100%",
+                        border: `3px solid ${CustomStyle.colors.mainBlack}`,
                     }}
-                    >
+                >
                     <CloseIcon />
                 </IconButton>
                 <Container>
                     <InnerContainer container>
                         <ImageContainer item xs={12} sm={4}>
-                            <Img src={imageSrc}/>
+                            <Img src={imageSrc} />
                         </ImageContainer>
                         <TextContainer item xs={12} sm={8}>
                             {children}
@@ -114,8 +113,7 @@ const DialogWindow = (props: DialogWindowPropsInterface) => {
                 </Container>
             </Dialog>
         </>
-
-    )
-}
+    );
+};
 
 export default DialogWindow;

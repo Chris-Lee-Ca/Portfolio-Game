@@ -10,24 +10,23 @@ import { useFrame, useThree } from "@react-three/fiber";
 import skyScene from "../assets/3d/sky.glb";
 
 type GLTFResult = GLTF & {
-  nodes: {
-    Object_2: THREE.Mesh;
-  };
-  materials: {
-    palette: THREE.MeshPhysicalMaterial;
-  };
+    nodes: {
+        Object_2: THREE.Mesh;
+    };
+    materials: {
+        palette: THREE.MeshPhysicalMaterial;
+    };
 };
 
 const Sky = (props: any) => {
-
     const skyRef = useRef();
-    const sky = useGLTF(skyScene)  as GLTFResult;
+    const sky = useGLTF(skyScene) as GLTFResult;
 
     return (
         <mesh>
             <primitive object={sky.scene} />
         </mesh>
     );
-}
+};
 
 export default Sky;

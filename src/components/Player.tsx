@@ -6,33 +6,32 @@ import PlayerImage from "../assets/game_images/Player.png";
 
 const Container = styled(Box)({
     // backgroundColor: 'red',
-    position: 'absolute',
-    height: '100vh',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: '100'
+    position: "absolute",
+    height: "100vh",
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: "100",
+});
 
-})
-
-const Img = styled('img')({
-    objectFit: 'contain',
+const Img = styled("img")({
+    objectFit: "contain",
     width: `${StyleConfig.mapBoxWidth}px`,
     height: `${StyleConfig.mapBoxHeight}px`,
     // boxShadow: CustomStyle.colors.mainShadow
-})
+});
 
-interface PlayerPropsInterface{
+interface PlayerPropsInterface {
     // playerFacing: 'N' | 'E' | 'S' | 'W'
 }
 
 const Player = (props: PlayerPropsInterface) => {
     return (
         <Container>
-            <Img src={PlayerImage}/>
+            <Img src={PlayerImage} />
         </Container>
-    )
-}
+    );
+};
 
 export default Player;

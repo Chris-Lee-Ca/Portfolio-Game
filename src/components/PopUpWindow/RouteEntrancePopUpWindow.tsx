@@ -7,28 +7,24 @@ import { usePlayerState } from "../../Context/PlayerContext";
 import { useGameInfoState } from "../../Context/GameInfoContext";
 import { PopUpWindowType } from "../../data/popUpWindow";
 
-
 const Title = styled(Box)({
-    fontWeight: 'bolder',
-    fontSize: '30px',
-    textTransform: 'uppercase'
-})
+    fontWeight: "bolder",
+    fontSize: "30px",
+    textTransform: "uppercase",
+});
 
-
-interface RouteEntrancePopUpWindowPropsInterface{
-    windowType: PopUpWindowType
+interface RouteEntrancePopUpWindowPropsInterface {
+    windowType: PopUpWindowType;
 }
 
 const RouteEntrancePopUpWindow = (props: RouteEntrancePopUpWindowPropsInterface) => {
-
-    const {windowType} = props;
+    const { windowType } = props;
 
     return (
         <>
             <Title>{windowType} Ave</Title>
         </>
-
-    )
-}
+    );
+};
 
 export default RouteEntrancePopUpWindow;

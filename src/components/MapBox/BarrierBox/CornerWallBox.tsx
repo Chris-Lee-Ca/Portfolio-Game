@@ -8,71 +8,65 @@ import { arrayEquals, getTransformDegreee } from "../../../utils/general";
 import { useGameInfoState } from "../../../Context/GameInfoContext";
 
 const Container = styled(Box)({
-    position: 'absolute',
-    height: '100%',
-    width: '100%'
-})
+    position: "absolute",
+    height: "100%",
+    width: "100%",
+});
 
 const RowContainer = styled(Box)({
-    display: 'flex',
-    height: '33.3%',
-    width: '100%'
-})
-
+    display: "flex",
+    height: "33.3%",
+    width: "100%",
+});
 
 const Wall = styled(Box)({
     backgroundColor: CustomStyle.colors.mainBlack,
-    width: '100%',
-    height: '100%'
-})
+    width: "100%",
+    height: "100%",
+});
 
 const Empty = styled(Box)({
     backgroundColor: CustomStyle.colors.primary,
-    width: '100%',
-    height: '100%'
-})
+    width: "100%",
+    height: "100%",
+});
 
-const Img = styled('img')({
-    objectFit: 'cover',
-    width: '100%',
-    height: '100%'
-})
+const Img = styled("img")({
+    objectFit: "cover",
+    width: "100%",
+    height: "100%",
+});
 
-
-interface CornerWallBoxPropsInterface{
-    location: [number, number],
-    facing: Facing,
+interface CornerWallBoxPropsInterface {
+    location: [number, number];
+    facing: Facing;
 }
 
 const CornerWallBox = (props: CornerWallBoxPropsInterface) => {
-
-    const {facing} = props;
+    const { facing } = props;
     return (
         <>
-            <Container sx={{transform : getTransformDegreee(facing)}}>
+            <Container sx={{ transform: getTransformDegreee(facing) }}>
                 <RowContainer>
                     <Wall>
-                        <Img 
-                            src={require('../../../assets/game_images/wall.png')}
-                        />
+                        <Img src={require("../../../assets/game_images/wall.png")} />
                     </Wall>
-                    <Empty/>
-                    <Empty/>
+                    <Empty />
+                    <Empty />
                 </RowContainer>
                 <RowContainer>
-                    <Empty/>
-                    <Empty/>
-                    <Empty/>
+                    <Empty />
+                    <Empty />
+                    <Empty />
                 </RowContainer>
                 <RowContainer>
-                    <Empty/>
-                    <Empty/>
-                    <Empty/>
+                    <Empty />
+                    <Empty />
+                    <Empty />
                 </RowContainer>
             </Container>
         </>
-
-    )
-}
+    );
+};
 
 export default CornerWallBox;
