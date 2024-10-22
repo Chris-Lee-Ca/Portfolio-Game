@@ -1,10 +1,6 @@
 import styled from "@emotion/styled";
-import { Box, Button, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 
-import CustomStyle from "../../Theme/CustomStyle";
-import { usePlayerState } from "../../Context/PlayerContext";
-import { useGameInfoState } from "../../Context/GameInfoContext";
-import Typewriter from "typewriter-effect";
 import { Bio } from "../../data/constants";
 import { StyledButton } from "../template/StyledButton";
 import { CustomTypeWriter } from "../template/CustomTypeWriter";
@@ -22,18 +18,9 @@ const Content = styled(Box)({
     textDecoration: "underline ",
 });
 
-const Span = styled("span")({
-    fontWeight: "bolder",
-});
-
 interface ResumeDialogWindowPropsInterface {}
 
 const ResumeDialogWindow = (props: ResumeDialogWindowPropsInterface) => {
-    const playerState = usePlayerState().playerState;
-    const { playerPosition } = playerState;
-    const gameInfoState = useGameInfoState().gameInfoState;
-    const setGameInfoState = useGameInfoState().setGameInfoState;
-
     return (
         <>
             <Title>{Bio.name}</Title>

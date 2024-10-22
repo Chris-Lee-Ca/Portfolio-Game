@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
-import { Box, Grid } from "@mui/material";
+import { Box } from "@mui/material";
 
 import CustomStyle from "../../Theme/CustomStyle";
-import { usePlayerState } from "../../Context/PlayerContext";
-import { useGameInfoState } from "../../Context/GameInfoContext";
-import Typewriter from "typewriter-effect";
 import { Bio } from "../../data/constants";
 import { StyledButton } from "../template/StyledButton";
 import { CustomTypeWriter } from "../template/CustomTypeWriter";
-import { Link } from "react-router-dom";
 
 const Title = styled(Box)({
     fontWeight: "bolder",
@@ -17,7 +13,6 @@ const Title = styled(Box)({
 });
 
 const Content = styled(Box)({
-    // width: '100%',
     width: "250px",
     fontWeight: "bold",
     display: "flex",
@@ -33,7 +28,7 @@ const ButtonWapper = styled(Box)({
     justifyContent: "center",
 });
 
-const StyledLink = styled(Link)({
+const StyledLink = styled("a")({
     textDecoration: "none",
     color: CustomStyle.colors.mainWhite,
 });
@@ -41,11 +36,6 @@ const StyledLink = styled(Link)({
 interface EndingDialogWindowPropsInterface {}
 
 const EndingDialogWindow = (props: EndingDialogWindowPropsInterface) => {
-    const playerState = usePlayerState().playerState;
-    const { playerPosition } = playerState;
-    const gameInfoState = useGameInfoState().gameInfoState;
-    const setGameInfoState = useGameInfoState().setGameInfoState;
-
     return (
         <>
             <Title>{Bio.name}</Title>
@@ -53,7 +43,9 @@ const EndingDialogWindow = (props: EndingDialogWindowPropsInterface) => {
                 <CustomTypeWriter content={"I believe I've figured out who I am. Thank you!"} />
                 <ButtonWapper>
                     <StyledButton>
-                        <StyledLink to="/">Back To Home Page.</StyledLink>
+                        <StyledLink href="https://www.chrislee.one/" target="_blank" rel="noopener noreferrer">
+                            Back To Home Page.
+                        </StyledLink>
                     </StyledButton>
                     {/* <StyledButton>Send a message to Developer.</StyledButton> */}
                 </ButtonWapper>

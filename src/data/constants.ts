@@ -28,7 +28,7 @@ export const Bio: BioInterface = {
     ],
     description:
         "I am a dedicated and self-driven software engineer with practical expertise in developing full-stack web applications and being part of the Agile teams.",
-    github: "https://github.com/bigbigphone2",
+    github: "https://github.com/Chris-Lee-Ca",
     resume: "https://drive.google.com/file/d/1WMuEvBOnKK89nAqQGVgnRn_6yYr5RNuO/view?usp=sharing",
     linkedin: "http://linkedin.com/in/chris-lee-bed",
     portfolio: "https://www.yatheilee.xyz/",

@@ -1,11 +1,7 @@
 import styled from "@emotion/styled";
 import { Box, Dialog, Grid, IconButton, Slide } from "@mui/material";
 import CustomStyle from "../../Theme/CustomStyle";
-import { ReactElement, forwardRef, useEffect } from "react";
-import StyleConfig from "../../Theme/StyleConfig";
-import { usePlayerState } from "../../Context/PlayerContext";
-import { arrayEquals } from "../../utils/general";
-import { useGameInfoState } from "../../Context/GameInfoContext";
+import { ReactElement, forwardRef } from "react";
 import { TransitionProps } from "@mui/material/transitions";
 import { useDialogState } from "../../Context/DialogContext";
 
@@ -22,8 +18,6 @@ const Transition = forwardRef(function Transition(
 
 const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.mainPaper,
-    // height: '300px',
-    // width: '300px',
     padding: "20px",
     display: "flex",
     flexDirection: "column",
@@ -42,7 +36,6 @@ const ImageContainer = styled(Grid)({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: 'red'
 });
 
 const Img = styled("img")({

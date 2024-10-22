@@ -1,24 +1,16 @@
 import styled from "@emotion/styled";
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import CustomStyle from "../Theme/CustomStyle";
-import StyleConfig from "../Theme/StyleConfig";
-import PlayerImage from "../assets/game_images/Player.png";
 
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 import mapDesign from "../data/mapDesign";
 import { usePlayerState } from "../Context/PlayerContext";
 import { useGameInfoState } from "../Context/GameInfoContext";
-import {
-    handleAllowedMovingDirestion,
-    handleOnClickArrowButton,
-    htmlCommandType,
-    triggerForceTriggerEvent,
-    triggerInteractionEvent,
-} from "../utils/playerControl";
+import { handleAllowedMovingDirestion, htmlCommandType, triggerInteractionEvent } from "../utils/playerControl";
 import { useDialogState } from "../Context/DialogContext";
 import { ControlButton } from "./template/StyledButton";
 
@@ -53,10 +45,7 @@ const ActionKeyContainer = styled(Grid)({
     alignItems: "center",
 });
 
-interface ControlPanelPropsInterface {
-    // playerPosition: [number,number],
-    // setPlayerPosition: Dispatch<SetStateAction<[number, number]>>
-}
+interface ControlPanelPropsInterface {}
 
 const htmlMovingType = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
 const htmlInteractType = ["a", "A"];

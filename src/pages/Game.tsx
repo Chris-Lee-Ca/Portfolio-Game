@@ -1,17 +1,17 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import CustomStyle from "../../../Theme/CustomStyle";
-import Player from "../../../components/Player";
-import GameMap from "../../../components/GameMap";
-import ControlPanel from "../../../components/ControlPanel";
-import PopUpWindowFactory from "../../../components/PopUpWindow/PopUpWindowFactory";
-import { useGameInfoState } from "../../../Context/GameInfoContext";
-import DialogWindowFactory from "../../../components/DialogWindow/DialogWindowFactory";
-import { useDialogState } from "../../../Context/DialogContext";
+import CustomStyle from "../Theme/CustomStyle";
+import Player from "../components/Player";
+import GameMap from "../components/GameMap";
+import ControlPanel from "../components/ControlPanel";
+import PopUpWindowFactory from "../components/PopUpWindow/PopUpWindowFactory";
+import { useGameInfoState } from "../Context/GameInfoContext";
+import DialogWindowFactory from "../components/DialogWindow/DialogWindowFactory";
+import { useDialogState } from "../Context/DialogContext";
 import { useEffect } from "react";
-import { getInitialPlayerPostion } from "../../../utils/viewPort";
-import mapDesign from "../../../data/mapDesign";
-import { usePlayerState } from "../../../Context/PlayerContext";
+import { getInitialPlayerPostion } from "../utils/viewPort";
+import mapDesign from "../data/mapDesign";
+import { usePlayerState } from "../Context/PlayerContext";
 
 const Container = styled(Box)({
     backgroundColor: CustomStyle.colors.primary,

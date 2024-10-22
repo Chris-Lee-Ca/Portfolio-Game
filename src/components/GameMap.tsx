@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import CustomStyle from "../Theme/CustomStyle";
-import { ReactElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getGameMapContainerOffset, getGameMapSize, getViewPort } from "../utils/viewPort";
 import StyleConfig from "../Theme/StyleConfig";
 import mapDesign, { emptyBox, mapBoxDesignInterface } from "../data/mapDesign";
 import MapBoxFactory from "./MapBox/MapBoxFactory";
-import Player from "./Player";
 import { usePlayerState } from "../Context/PlayerContext";
 
 const Container = styled(Box)({
